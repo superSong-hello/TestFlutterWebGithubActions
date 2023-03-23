@@ -19,7 +19,10 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  testF() {}
+  testF() {
+    const a = '1';
+    debugPrint(a);
+  }
 }
 
 class MyHomePage extends StatefulWidget {
