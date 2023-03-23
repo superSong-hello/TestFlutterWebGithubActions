@@ -57,6 +57,6 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           from: ${{ secrets.EMAIL_USERNAME }}
           to: songjichao225@163.com,songjichao225@sina.com
-          subject: 'Build completed successfully_'$ENV
+          subject: 'Build completed successfully_'
           body: 'Your build TestFlutterWebGithubActions project has completed successfully.'
 
