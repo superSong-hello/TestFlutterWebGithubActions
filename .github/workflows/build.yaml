@@ -44,5 +44,5 @@ jobs:
           from: 'song_jichao@c.tre-inc.com'
           to: songjichao225@163.com,songjichao225@sina.com
           subject: 'Build completed successfully'
-          body: 'Your build has completed successfully.'
+          body: 'Your build TestFlutterWebGithubActions has completed successfully.'
 
