@@ -9,6 +9,8 @@ jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
+    env:
+      ENV: debug # debug / stg / release
 
     steps:
       - name: Checkout Code
@@ -19,14 +21,26 @@ jobs:
         with:
           flutter-version: '3.7.5' # 指定 Flutter 版本
         
-      - name: clean and install pub
+      - name: Clean and Install pub
         run: |
           flutter clean
           flutter pub get
-
+          
+      - name: Analyze project
+        run: flutter analyze
+        
+      - name: Check for the existence of unformatted files
+        run: dart format --set-exit-if-changed lib/
+        
+      - name: Metrics project
+        run: flutter pub run dart_code_metrics:metrics analyze lib
+        
+      - name: Test project
+        run: flutter test
+          
       - name: Build Web
         run: |
-          flutter build web --base-href="/TestFlutterWebGithubActions/" --web-renderer html
+          flutter build web --dart-define=MODE=$ENV --base-href="/TestFlutterWebGithubActions/" --web-renderer html
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -41,8 +55,8 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          from: 'song_jichao@c.tre-inc.com'
+          from: ${{ secrets.EMAIL_USERNAME }}
           to: songjichao225@163.com,songjichao225@sina.com
-          subject: 'Build completed successfully'
-          body: 'Your build TestFlutterWebGithubActions has completed successfully.'
+          subject: 'Build completed successfully_'$ENV
+          body: 'Your build TestFlutterWebGithubActions project has completed successfully.'
 
