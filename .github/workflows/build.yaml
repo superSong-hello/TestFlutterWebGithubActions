@@ -19,11 +19,14 @@ jobs:
         with:
           flutter-version: '3.7.5' # 指定 Flutter 版本
         
-#      - name: clean
-#        run: flutter clean
+      - name: clean and install pub
+        run: |
+          cd github_actions_flutterweb
+          flutter clean
+          flutter pub get
 
-      - name: Get Packages
-        run: flutter pub get
+#      - name: Get Packages
+#        run: flutter pub get
 
       - name: Build Web
         run: flutter build web --base-href="/FlutterWebGithubActions/" --web-renderer html
