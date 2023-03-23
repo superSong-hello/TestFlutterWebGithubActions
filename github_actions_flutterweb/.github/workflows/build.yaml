@@ -22,18 +22,20 @@ jobs:
       - name: clean and install pub
         run: |
           ls
-          cd github_actions_flutterweb
+#          cd github_actions_flutterweb
           flutter clean
           flutter pub get
 
-#      - name: Get Packages
-#        run: flutter pub get
-
       - name: Build Web
         run: |
-          ls
-          cd github_actions_flutterweb
+#          cd github_actions_flutterweb
           flutter build web --base-href="/FlutterWebGithubActions/" --web-renderer html
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
 
 #  deploy:
 #    name: Deploy to GitHub Pages
