@@ -16,6 +16,11 @@ jobs:
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.7.5' # 指定 Flutter 版本
+        
+      - name: clean
+        run: flutter clean
 
       - name: Get Packages
         run: flutter pub get
