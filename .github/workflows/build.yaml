@@ -33,17 +33,15 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./build/web
+          
+      - name: Configure SMTP server
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          to: songjichao225@163.com,songjichao225@sina.com
+          subject: 'Build completed successfully'
+          body: 'Your build has completed successfully.'
 
-#  deploy:
-#    name: Deploy to GitHub Pages
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Checkout Code
-#        uses: actions/checkout@v3
-#
-#      - name: Deploy to GitHub Pages
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          publish_dir: ./build/web
