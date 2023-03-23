@@ -21,6 +21,7 @@ jobs:
         
       - name: clean and install pub
         run: |
+          ls
           cd github_actions_flutterweb
           flutter clean
           flutter pub get
@@ -29,7 +30,10 @@ jobs:
 #        run: flutter pub get
 
       - name: Build Web
-        run: flutter build web --base-href="/FlutterWebGithubActions/" --web-renderer html
+        run: |
+          ls
+          cd github_actions_flutterweb
+          flutter build web --base-href="/FlutterWebGithubActions/" --web-renderer html
 
 #  deploy:
 #    name: Deploy to GitHub Pages
