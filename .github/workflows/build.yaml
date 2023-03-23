@@ -33,7 +33,7 @@ jobs:
         run: dart format --set-exit-if-changed lib/
         
       - name: Metrics project
-        run: flutter pub run dart_code_metrics:metrics analyze lib
+        run: flutter pub run dart_code_metrics:metrics analyze lib/
         
       - name: Test project
         run: flutter test
@@ -42,11 +42,18 @@ jobs:
         run: |
           flutter build web --dart-define=MODE=$ENV --base-href="/TestFlutterWebGithubActions/" --web-renderer html
           
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+#      - name: Deploy to GitHub Pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.TOKEN }}
+#          publish_dir: ./build/web
+          
+      - name: Deploy to Firebase Hosting
+        uses: w9jds/firebase-action@master
         with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./build/web
+          args: deploy --only hosting -m "Deploy from GitHub Actions" ./build/web
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           
       - name: Configure SMTP server
         uses: dawidd6/action-send-mail@v3
