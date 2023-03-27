@@ -17,16 +17,19 @@ jobs:
         env:
           ENV: debug
         if: github.ref == 'refs/heads/develop'
+        run: echo "debug Environment"
       
       - name: Set environment variables (stg)
         env:
           ENV: stg
         if: github.ref == 'refs/heads/release'
+        run: echo "stg Environment"
         
       - name: Set environment variables (release)
         env:
           ENV: release
         if: github.ref == 'refs/heads/main'
+        run: echo "release Environment"
     
       - name: Checkout Code
         uses: actions/checkout@v3
