@@ -1,18 +1,33 @@
 name: build_and_deploy
 
 on:
-  push:
+  pull_request:
     branches:
-      - main
+      [develop, release, master]
+  workflow_dispatch:
 
 jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
-    env:
-      ENV: debug # debug / stg / release
 
     steps:
+      # Set environment variables
+      - name: Set environment variables (debug)
+        env:
+          ENV: debug
+        if: github.ref == 'refs/heads/develop'
+      
+      - name: Set environment variables (stg)
+        env:
+          ENV: stg
+        if: github.ref == 'refs/heads/release'
+        
+      - name: Set environment variables (release)
+        env:
+          ENV: release
+        if: github.ref == 'refs/heads/main'
+    
       - name: Checkout Code
         uses: actions/checkout@v3
 
@@ -29,8 +44,8 @@ jobs:
       - name: Analyze project
         run: flutter analyze
         
-#      - name: Check for the existence of unformatted files
-#        run: dart format --set-exit-if-changed lib/
+      - name: Check for the existence of unformatted files
+        run: dart format --set-exit-if-changed lib/
         
       - name: Metrics project
         run: flutter pub run dart_code_metrics:metrics analyze lib/
@@ -42,18 +57,18 @@ jobs:
         run: |
           flutter build web --dart-define=MODE=$ENV --base-href="/TestFlutterWebGithubActions/" --web-renderer html
           
-#      - name: Deploy to GitHub Pages
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.TOKEN }}
-#          publish_dir: ./build/web
-          
-      - name: Deploy to Firebase Hosting
-        uses: w9jds/firebase-action@master
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          args: deploy --only hosting -m "Deploy from GitHub Actions" ./build/web
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./build/web
+          
+#      - name: Deploy to Firebase Hosting
+#        uses: w9jds/firebase-action@master
+#        with:
+#          args: deploy --only hosting -m "Deploy from GitHub Actions" ./build/web
+#        env:
+#          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           
       - name: Configure SMTP server
         uses: dawidd6/action-send-mail@v3
