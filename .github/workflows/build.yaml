@@ -16,73 +16,69 @@ jobs:
       # Set environment variables
       - name: Set environment variables
         env:
-          ENV: debug
+          ENV: "debug"
         if: github.event.pull_request.base.ref == 'develop'
         run: echo "debug Environment"
       
       - name: Set environment variables (stg)
         env:
-          ENV: stg
+          ENV: "stg"
         if: github.event.pull_request.base.ref == 'release'
         run: echo "stg Environment"
         
       - name: Set environment variables (release)
         env:
-          ENV: release
+          ENV: "release"
         if: github.event.pull_request.base.ref == 'main'
         run: echo "release Environment"
+        
+      - name: print env
+        run: echo ${{ env.ENV }}
     
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.7.5' # 指定 Flutter 版本
-        
-      - name: Clean and Install pub
-        run: |
-          flutter clean
-          flutter pub get
-          
-      - name: Analyze project
-        run: flutter analyze
-        
-      - name: Check for the existence of unformatted files
-        run: dart format --set-exit-if-changed lib/
-        
-      - name: Metrics project
-        run: flutter pub run dart_code_metrics:metrics analyze lib/
-        
-      - name: Test project
-        run: flutter test
-          
-      - name: Build Web
-        run: |
-          flutter build web --dart-define=MODE=$ENV --base-href="/TestFlutterWebGithubActions/" --web-renderer html
-          
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./build/web
-          
-#      - name: Deploy to Firebase Hosting
-#        uses: w9jds/firebase-action@master
+#      - name: Checkout Code
+#        uses: actions/checkout@v3
+#
+#      - name: Setup Flutter
+#        uses: subosito/flutter-action@v2
 #        with:
-#          args: deploy --only hosting -m "Deploy from GitHub Actions" ./build/web
-#        env:
-#          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+#          flutter-version: '3.7.5' # 指定 Flutter 版本
+#
+#      - name: Clean and Install pub
+#        run: |
+#          flutter clean
+#          flutter pub get
+#
+#      - name: Analyze project
+#        run: flutter analyze
+#
+#      - name: Check for the existence of unformatted files
+#        run: dart format --set-exit-if-changed lib/
+#
+#      - name: Metrics project
+#        run: flutter pub run dart_code_metrics:metrics analyze lib/
+#
+#      - name: Test project
+#        run: flutter test
+#
+#      - name: Build Web
+#        run: |
+#          flutter build web --dart-define=MODE=$ENV --base-href="/TestFlutterWebGithubActions/" --web-renderer html
           
-      - name: Configure SMTP server
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          from: ${{ secrets.EMAIL_USERNAME }}
-          to: songjichao225@163.com,songjichao225@sina.com
-          subject: 'Build completed successfully_'
-          body: 'Your build TestFlutterWebGithubActions project has completed successfully.'
+#      - name: Deploy to GitHub Pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.TOKEN }}
+#          publish_dir: ./build/web
+#
+#      - name: Configure SMTP server
+#        uses: dawidd6/action-send-mail@v3
+#        with:
+#          server_address: smtp.gmail.com
+#          server_port: 465
+#          username: ${{ secrets.EMAIL_USERNAME }}
+#          password: ${{ secrets.EMAIL_PASSWORD }}
+#          from: ${{ secrets.EMAIL_USERNAME }}
+#          to: songjichao225@163.com,songjichao225@sina.com
+#          subject: 'Build completed successfully_'
+#          body: 'Your build TestFlutterWebGithubActions project has completed successfully.'
 
