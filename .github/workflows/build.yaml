@@ -33,7 +33,7 @@ jobs:
         run: echo "release Environment"
         
       - name: print env
-        run: echo ${{ env.ENV }}
+        run: echo $ENV
     
 #      - name: Checkout Code
 #        uses: actions/checkout@v3
