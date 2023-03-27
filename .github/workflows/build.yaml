@@ -24,7 +24,9 @@ jobs:
         env:
           ENV: "stg"
         if: github.event.pull_request.base.ref == 'release'
-        run: echo "stg Environment"
+        run: |
+          echo "stg Environment"
+          $ENVIRONMENT = "stg"
         
       - name: Set environment variables (release)
         env:
@@ -34,9 +36,6 @@ jobs:
         
       - name: print env
         run: |
-          echo $ENV
-          echo "$ENV"
-          echo ${{ ENV }}
           echo "$ENVIRONMENT"
     
 #      - name: Checkout Code
