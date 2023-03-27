@@ -9,34 +9,25 @@ jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
-    env:
-      ENVIRONMENT: debug # debug / stg / release
+#    env:
+#      ENVIRONMENT: debug # debug / stg / release
 
     steps:
       # Set environment variables
       - name: Set environment variables
-        env:
-          ENV: "debug"
         if: github.event.pull_request.base.ref == 'develop'
-        run: echo "debug Environment"
+        run: echo "MY_VARIABLE=debug" >> $GITHUB_ENV
       
       - name: Set environment variables (stg)
-        env:
-          ENV: "stg"
         if: github.event.pull_request.base.ref == 'release'
-        run: |
-          echo "stg Environment"
-          $ENVIRONMENT = "stg"
+        run: echo "MY_VARIABLE=stg" >> $GITHUB_ENV
         
       - name: Set environment variables (release)
-        env:
-          ENV: "release"
         if: github.event.pull_request.base.ref == 'main'
-        run: echo "release Environment"
+        run: echo "MY_VARIABLE=release" >> $GITHUB_ENV
         
       - name: print env
-        run: |
-          echo "$ENVIRONMENT"
+        run: echo "${{ env.MY_VARIABLE }}"
     
 #      - name: Checkout Code
 #        uses: actions/checkout@v3
