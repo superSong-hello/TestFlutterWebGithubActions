@@ -46932,7 +46932,7 @@ return A.a18(this.r,s.b.a5(0,r.gt(r)),B.dO)}}
 A.tC.prototype={
 M(a){return this.e.$2(a,this.f)}}
 A.wF.prototype={
-M(a){return new A.om(B.Ai,"Flutter Demo",A.a2O(null,B.eu,null),null)}}
+M(a){return new A.om(B.Ai,"",A.a2O(null,B.eu,null),null)}}
 A.ox.prototype={
 ar(){return new A.r4(B.m)}}
 A.r4.prototype={
