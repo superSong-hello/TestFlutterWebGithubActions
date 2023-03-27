@@ -35,9 +35,9 @@ jobs:
       - name: print env
         run: |
           echo $ENV
-          echo ${ ENV }
+          echo "$ENV"
           echo ${{ ENV }}
-          echo $ENVIRONMENT
+          echo "$ENVIRONMENT"
     
 #      - name: Checkout Code
 #        uses: actions/checkout@v3
