@@ -9,8 +9,6 @@ jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
-#    env:
-#      ENVIRONMENT: debug # debug / stg / release
 
     steps:
       # Set environment variables
@@ -25,9 +23,6 @@ jobs:
       - name: Set environment variables (release)
         if: github.event.pull_request.base.ref == 'main'
         run: echo "MY_VARIABLE=release" >> $GITHUB_ENV
-        
-      - name: print env
-        run: echo "${{ env.MY_VARIABLE }}"
     
       - name: Checkout Code
         uses: actions/checkout@v3
