@@ -65,7 +65,7 @@ jobs:
       - name: Use checked-out code
         run: |
           echo "${{ github.workspace }}"
-          cd "${{ github.workspace }}"
+          cd ${{ github.workspace }}
           ls
         
       - name: Build Web
