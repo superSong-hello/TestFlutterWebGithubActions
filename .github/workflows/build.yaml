@@ -11,20 +11,21 @@ jobs:
     runs-on: ubuntu-latest
     env:
       is_build: false
+      env_variables: debug
 
     steps:
       # Set environment variables
       - name: Set environment variables (debug)
         if: github.event.pull_request.base.ref == 'develop'
-        run: echo "MY_VARIABLE=debug" >> $GITHUB_ENV
+        run: echo "env_variables=debug" >> $GITHUB_ENV
       
       - name: Set environment variables (stg)
         if: github.event.pull_request.base.ref == 'release'
-        run: echo "MY_VARIABLE=stg" >> $GITHUB_ENV
+        run: echo "env_variables=stg" >> $GITHUB_ENV
         
       - name: Set environment variables (release)
         if: github.event.pull_request.base.ref == 'main'
-        run: echo "MY_VARIABLE=release" >> $GITHUB_ENV
+        run: echo "env_variables=release" >> $GITHUB_ENV
 
       - name: Test PR type
         run: |
@@ -60,19 +61,19 @@ jobs:
         run: flutter test
         
       - name: Build Web
-        if: ${{ env.is_build }} == true
+        if: ${{ env.is_build }} == 'true'
         run: |
-          flutter build web --dart-define=MODE="${{ env.MY_VARIABLE }}" --base-href="/TestFlutterWebGithubActions/" --web-renderer html
+          flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/TestFlutterWebGithubActions/" --web-renderer html
 
       - name: Deploy to GitHub Pages
-        if: ${{ env.is_build }} == true
+        if: ${{ env.is_build }} == 'true'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./build/web
 
       - name: Configure SMTP server
-        if: ${{ env.is_build }} == true
+        if: ${{ env.is_build }} == 'true'
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
