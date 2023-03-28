@@ -62,6 +62,10 @@ jobs:
         if: github.event.pull_request.base.ref == 'main'
         run: echo "env_variables=release" >> $GITHUB_ENV
         
+      - name: Use checked-out code
+        run: |
+          ls
+        
       - name: Build Web
         run: |
           flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/TestFlutterWebGithubActions/" --web-renderer html
