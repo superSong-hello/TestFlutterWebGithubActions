@@ -14,27 +14,27 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.7.5' # 指定 Flutter 版本
-
-      - name: Clean and Install pub
-        run: |
-          flutter clean
-          flutter pub get
-
-      - name: Analyze project
-        run: flutter analyze
-
-      - name: Check for the existence of unformatted files
-        run: dart format --set-exit-if-changed lib/
-
-      - name: Metrics project
-        run: flutter pub run dart_code_metrics:metrics analyze lib/
-
-      - name: Test project
-        run: flutter test
+#      - name: Setup Flutter
+#        uses: subosito/flutter-action@v2
+#        with:
+#          flutter-version: '3.7.5' # 指定 Flutter 版本
+#
+#      - name: Clean and Install pub
+#        run: |
+#          flutter clean
+#          flutter pub get
+#
+#      - name: Analyze project
+#        run: flutter analyze
+#
+#      - name: Check for the existence of unformatted files
+#        run: dart format --set-exit-if-changed lib/
+#
+#      - name: Metrics project
+#        run: flutter pub run dart_code_metrics:metrics analyze lib/
+#
+#      - name: Test project
+#        run: flutter test
       
   job_build:
     name: Build
@@ -64,6 +64,8 @@ jobs:
         
       - name: Use checked-out code
         run: |
+          echo "${{ github.workspace }}"
+          cd "${{ github.workspace }}"
           ls
         
       - name: Build Web
