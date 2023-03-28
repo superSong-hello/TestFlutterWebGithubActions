@@ -58,7 +58,7 @@ jobs:
 
       - name: Test project
         run: flutter test
-
+        
       - name: Build Web
         if: "${{ env.is_build }}" == "true"
         run: |
