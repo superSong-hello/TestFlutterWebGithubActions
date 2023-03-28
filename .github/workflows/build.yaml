@@ -10,7 +10,7 @@ jobs:
     name: Build and Test
     runs-on: ubuntu-latest
     env:
-      is_build: false
+      is_build: ${{ false }}
       env_variables: debug
 
     steps:
@@ -30,9 +30,9 @@ jobs:
       - name: Test PR type
         run: |
           if [ "${{ github.event.action }}" == "closed" ]; then
-            echo "is_build=true" >> $GITHUB_ENV
+            echo "is_build=${{ true }}" >> $GITHUB_ENV
           else
-            echo "is_build=false" >> $GITHUB_ENV
+            echo "is_build=${{ false }}">> $GITHUB_ENV
           fi
 
 #      - name: Checkout Code
@@ -73,7 +73,7 @@ jobs:
 #          publish_dir: ./build/web
 
       - name: Configure SMTP server
-        if: "${{ env.is_build }}" == true
+        if: ${{ env.is_build == true }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
