@@ -2,13 +2,15 @@ name: build_and_deploy
 
 on:
   pull_request:
-    types: [closed]
+    types: [opened, synchronize, reopened, ready_for_review, closed]
   workflow_dispatch:
 
 jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
+    env:
+      is_build: false
 
     steps:
       # Set environment variables
@@ -23,7 +25,15 @@ jobs:
       - name: Set environment variables (release)
         if: github.event.pull_request.base.ref == 'main'
         run: echo "MY_VARIABLE=release" >> $GITHUB_ENV
-    
+
+      - name: Test PR type
+        run: |
+          if [ "${{ github.event.action }}" == "closed" ]; then
+            echo "::set-env name=is_build::true"
+          else
+            echo "::set-env name=is_build::false"
+          fi
+
       - name: Checkout Code
         uses: actions/checkout@v3
 
@@ -50,16 +60,19 @@ jobs:
         run: flutter test
 
       - name: Build Web
+        if: "${{ env.is_build }}" == "true"
         run: |
           flutter build web --dart-define=MODE="${{ env.MY_VARIABLE }}" --base-href="/TestFlutterWebGithubActions/" --web-renderer html
           
       - name: Deploy to GitHub Pages
+        if: "${{ env.is_build }}" == "true"
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./build/web
 
       - name: Configure SMTP server
+        if: "${{ env.is_build }}" == "true"
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com

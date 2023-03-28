@@ -28,7 +28,9 @@ void main() async {
   debugPrint(fcmToken);
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    if (message.notification != null) {}
+    if (message.notification != null) {
+      // debugPrint(messaging);
+    }
   });
 
   runApp(const MyApp());
