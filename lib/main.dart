@@ -1,6 +1,38 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
+
+  debugPrint('User granted permission: ${settings.authorizationStatus}');
+
+  final fcmToken = await FirebaseMessaging.instance.getToken(
+      vapidKey:
+          "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g");
+  debugPrint(fcmToken);
+
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    if (message.notification != null) {
+      // debugPrint(messaging);
+    }
+  });
+
   runApp(const MyApp());
 }
 
@@ -10,16 +42,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    const env = String.fromEnvironment('MODE');
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: env,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: env),
     );
   }
 
-  testF() {
+  testF() async {
     const a = '1';
     debugPrint(a);
   }
