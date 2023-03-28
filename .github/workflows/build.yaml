@@ -2,83 +2,91 @@ name: build_and_deploy
 
 on:
   pull_request:
-    types: [closed]
+    types: [opened, synchronize, reopened, ready_for_review, closed]
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build and Test
+  
+  job_check:
+    name: Test
     runs-on: ubuntu-latest
-#    env:
-#      ENV: debug # debug / stg / release
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.7.5' # 指定 Flutter 版本
+
+      - name: Clean and Install pub
+        run: |
+          flutter clean
+          flutter pub get
+
+      - name: Analyze project
+        run: flutter analyze
+
+      - name: Check for the existence of unformatted files
+        run: dart format --set-exit-if-changed lib/
+
+      - name: Metrics project
+        run: flutter pub run dart_code_metrics:metrics analyze lib/
+
+      - name: Test project
+        run: flutter test
+      
+  job_build:
+    name: Build
+    runs-on: ubuntu-latest
+    env:
+      env_variables: debug
+    needs: job_check
+    if: ${{ github.event.action == 'closed' }}
     steps:
       # Set environment variables
-      - name: Set environment variables
-        env:
-          ENV: "debug"
+      - name: Set environment variables (debug)
         if: github.event.pull_request.base.ref == 'develop'
-        run: echo "debug Environment"
+        run: echo "env_variables=debug" >> $GITHUB_ENV
       
       - name: Set environment variables (stg)
-        env:
-          ENV: "stg"
         if: github.event.pull_request.base.ref == 'release'
-        run: echo "stg Environment"
+        run: echo "env_variables=stg" >> $GITHUB_ENV
         
       - name: Set environment variables (release)
-        env:
-          ENV: "release"
         if: github.event.pull_request.base.ref == 'main'
-        run: echo "release Environment"
+        run: echo "env_variables=release" >> $GITHUB_ENV
         
-      - name: print env
-        run: echo "${ENV}"
-    
-#      - name: Checkout Code
-#        uses: actions/checkout@v3
-#
-#      - name: Setup Flutter
-#        uses: subosito/flutter-action@v2
-#        with:
-#          flutter-version: '3.7.5' # 指定 Flutter 版本
-#
-#      - name: Clean and Install pub
-#        run: |
-#          flutter clean
-#          flutter pub get
-#
-#      - name: Analyze project
-#        run: flutter analyze
-#
-#      - name: Check for the existence of unformatted files
-#        run: dart format --set-exit-if-changed lib/
-#
-#      - name: Metrics project
-#        run: flutter pub run dart_code_metrics:metrics analyze lib/
-#
-#      - name: Test project
-#        run: flutter test
-#
-#      - name: Build Web
-#        run: |
-#          flutter build web --dart-define=MODE=$ENV --base-href="/TestFlutterWebGithubActions/" --web-renderer html
-          
-#      - name: Deploy to GitHub Pages
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.TOKEN }}
-#          publish_dir: ./build/web
-#
-#      - name: Configure SMTP server
-#        uses: dawidd6/action-send-mail@v3
-#        with:
-#          server_address: smtp.gmail.com
-#          server_port: 465
-#          username: ${{ secrets.EMAIL_USERNAME }}
-#          password: ${{ secrets.EMAIL_PASSWORD }}
-#          from: ${{ secrets.EMAIL_USERNAME }}
-#          to: songjichao225@163.com,songjichao225@sina.com
-#          subject: 'Build completed successfully_'
-#          body: 'Your build TestFlutterWebGithubActions project has completed successfully.'
-
+      - name: Build Web
+        run: |
+          flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/TestFlutterWebGithubActions/" --web-renderer html
+  
+  job_deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: [job_check, job_build]
+    if: ${{ github.event.action == 'closed' }}
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./build/web
+  
+  job_notify:
+    name: Notify
+    runs-on: ubuntu-latest
+    needs: [job_check, job_build, job_deploy]
+    if: ${{ github.event.action == 'closed' }}
+    steps:
+      - name: Configure SMTP server
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          from: ${{ secrets.EMAIL_USERNAME }}
+          to: songjichao225@163.com,songjichao225@sina.com
+          subject: 'Build completed successfully_'
+          body: 'Your build TestFlutterWebGithubActions project has completed successfully.'
