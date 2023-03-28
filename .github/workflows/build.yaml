@@ -6,14 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  env:
+    is_build: ${{ false }}
+    env_variables: debug
 
   job_check:
     name: Test
     runs-on: ubuntu-latest
-    env:
-      is_build: ${{ false }}
-      env_variables: debug
-    
     steps:
       # Set environment variables
       - name: Set environment variables (debug)
