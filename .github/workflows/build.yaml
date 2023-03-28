@@ -44,6 +44,11 @@ jobs:
     needs: job_check
     if: ${{ github.event.action == 'closed' }}
     steps:
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.7.5' # 指定 Flutter 版本
+          
       # Set environment variables
       - name: Set environment variables (debug)
         if: github.event.pull_request.base.ref == 'develop'
