@@ -29,9 +29,9 @@ jobs:
       - name: Test PR type
         run: |
           if [ "${{ github.event.action }}" == "closed" ]; then
-            echo "::set-env name=is_build::true"
+            echo "is_build=true" >> $GITHUB_ENV
           else
-            echo "::set-env name=is_build::false"
+            echo "is_build=false" >> $GITHUB_ENV
           fi
 
       - name: Checkout Code
