@@ -49,6 +49,7 @@ class MyApp extends StatelessWidget {
       title: env,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        cardColor: Colors.white
       ),
       home: const MyHomePage(title: env),
     );
