@@ -77,11 +77,11 @@ jobs:
 #          publish_dir: ./build/web
 
       - name: Upload to GCS
-          uses: google-github-actions/upload-cloud-storage@master
-          with:
-            service_account_key: ${{ secrets.GCP_SA_KEY }}
-            source: ./build/web
-            destination: gs://testflutterweb-f0895.appspot.com
+        uses: google-github-actions/upload-cloud-storage@master
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          source: ./build/web
+          destination: gs://testflutterweb-f0895.appspot.com
   
   job_notify:
     name: Notify
