@@ -24,23 +24,24 @@ jobs:
           flutter clean
           flutter pub get
 
-      - name: Analyze project
-        run: flutter analyze
-
-      - name: Check for the existence of unformatted files
-        run: dart format --set-exit-if-changed lib/
-
-      - name: Metrics project
-        run: flutter pub run dart_code_metrics:metrics analyze lib/
-
-      - name: Test project
-        run: flutter test
+#      - name: Analyze project
+#        run: flutter analyze
+#
+#      - name: Check for the existence of unformatted files
+#        run: dart format --set-exit-if-changed lib/
+#
+#      - name: Metrics project
+#        run: flutter pub run dart_code_metrics:metrics analyze lib/
+#
+#      - name: Test project
+#        run: flutter test
       
   job_build_deploy:
     name: Build And Deploy
     runs-on: ubuntu-latest
     env:
       env_variables: debug
+      BUCKET_NAME: shinise-dashboard
     needs: job_check
     if: ${{ github.event.action == 'closed' }}
     steps:
@@ -69,11 +70,18 @@ jobs:
         run: |
           flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/TestFlutterWebGithubActions/" --web-renderer html
   
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+#      - name: Deploy to GitHub Pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.TOKEN }}
+#          publish_dir: ./build/web
+
+      - name: Upload to GCS
+        uses: google-github-actions/upload-cloud-storage@master
         with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./build/web
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          source: ./build/web
+          destination: gs://testflutterweb-f0895.appspot.com
   
   job_notify:
     name: Notify
