@@ -52,7 +52,14 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.7.5' # 指定 Flutter 版本
-          
+
+      - name: Setup - gcloud / gsutil
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@v1
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          #          project_id: ${{ secrets.GCS_PROJECT }}
+          export_default_credentials: true
+
       # Set environment variables
       - name: Set environment variables (debug)
         if: github.event.pull_request.base.ref == 'develop'
@@ -83,16 +90,11 @@ jobs:
 #          source: ./build/web
 #          destination: gs://testflutterweb-f0895.appspot.com
 
-      - name: Setup - gcloud / gsutil
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@v1
-        with:
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-#          project_id: ${{ secrets.GCS_PROJECT }}
-          export_default_credentials: true
-
       - name: Deploy
         run: |
-          gsutil cp -r ./build/web gs://testflutterweb-f0895.appspot.com
+          cd ./build/web
+          ls
+          gsutil cp ./build/web gs://testflutterweb-f0895.appspot.com
 #          gsutil -m rsync -R output gs://testflutterweb-f0895.appspot.com
   
   job_notify:
