@@ -93,7 +93,7 @@ jobs:
 
       - name: Deploy
         run: |
-          gsutil -m cp -r ./build/web/* gs://test_flutter_bucket/develop/
+          gsutil -m cp -r ./build/web/* gs://test_flutter_bucket/"${{ env.env_variables }}"/
 #          gsutil -m rsync -R output gs://testflutterweb-f0895.appspot.com
   
   job_notify:
