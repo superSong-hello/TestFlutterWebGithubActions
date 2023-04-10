@@ -100,9 +100,7 @@ jobs:
 
       - name: Deploy
         run: |
-          cd ./build/web
-          ls
-          gsutil cp -r ./build/web gs://test_flutter_bucket
+          gsutil cp -r ./build/web/** gs://test_flutter_bucket/
 #          gsutil -m rsync -R output gs://testflutterweb-f0895.appspot.com
   
   job_notify:
