@@ -60,9 +60,9 @@ jobs:
 #          #          project_id: ${{ secrets.GCS_PROJECT }}
 #          export_default_credentials: true
       -
-      - id: 'auth'
+      - name: 'Auth'
       - uses: 'google-github-actions/auth@v1'
-          with:
+        with:
             credentials_json: ${{ secrets.GCP_SA_KEY }}
 
       - name: 'Set up Cloud SDK'
