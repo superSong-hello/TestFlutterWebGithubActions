@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       env_variables: debug
-      BUCKET_NAME: shinise-dashboard
+      BUCKET_NAME: test_flutter_bucket
     needs: job_check
 #    if: ${{ github.event.action == 'closed' }}
     steps:
@@ -93,9 +93,9 @@ jobs:
 
       - name: Deploy
         run: |
-          gsutil -m cp -r ./build/web/* gs://test_flutter_bucket/${{ env.env_variables }}/
-#          gsutil -m rsync -R output gs://testflutterweb-f0895.appspot.com
-  
+          gsutil -m cp -r ./build/web/* gs://${{ env.BUCKET_NAME }}/
+#          gsutil -m cp -r ./build/web/* gs://${{ env.BUCKET_NAME }}/${{ env.env_variables }}/
+
   job_notify:
     name: Notify
     runs-on: ubuntu-latest
