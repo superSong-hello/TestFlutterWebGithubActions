@@ -9,9 +9,9 @@ import 'home.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
 
   // FirebaseMessaging messaging = FirebaseMessaging.instance;
   // NotificationSettings settings = await messaging.requestPermission(
@@ -24,20 +24,20 @@ void main() async {
   //   sound: true,
   // );
 
-  final fcmToken = await FirebaseMessaging.instance.getToken(
-      vapidKey:
-          "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g");
-  debugPrint(fcmToken);
-
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    debugPrint('Got a message whilst in the foreground!');
-    debugPrint('Message data: ${message.data}');
-
-    if (message.notification != null) {
-      debugPrint(
-          'Message also contained a notification: ${message.notification}');
-    }
-  });
+  // final fcmToken = await FirebaseMessaging.instance.getToken(
+  //     vapidKey:
+  //         "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g");
+  // debugPrint(fcmToken);
+  //
+  // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+  //   debugPrint('Got a message whilst in the foreground!');
+  //   debugPrint('Message data: ${message.data}');
+  //
+  //   if (message.notification != null) {
+  //     debugPrint(
+  //         'Message also contained a notification: ${message.notification}');
+  //   }
+  // });
 
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // Run code required to handle interacted messages in an async function
     // as initState() must not be async
-    setupInteractedMessage();
+    // setupInteractedMessage();
   }
 
   void _incrementCounter() {
