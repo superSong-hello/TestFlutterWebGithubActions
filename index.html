@@ -43,8 +43,9 @@
   <script>
     window.addEventListener('load', function(ev) {
 
+      var url = new URL('https://supersong-hello.github.io/TestFlutterWebGithubActions/firebase-messaging-sw.js');
     // ADD THIS LINE 
-    navigator.serviceWorker.register('firebase-messaging-sw.js')
+    navigator.serviceWorker.register(url)
       .then((registration) => {
             // 注册成功
             // 这里可以添加更多的逻辑代码
