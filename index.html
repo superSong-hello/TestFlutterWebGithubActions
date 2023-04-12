@@ -44,7 +44,7 @@
     window.addEventListener('load', function(ev) {
 
     // ADD THIS LINE 
-    navigator.serviceWorker.register('./firebase-messaging-sw.js')
+    navigator.serviceWorker.register('firebase-messaging-sw.js')
       .then((registration) => {
             // 注册成功
             // 这里可以添加更多的逻辑代码
