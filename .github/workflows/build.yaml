@@ -53,13 +53,6 @@ jobs:
         with:
           flutter-version: '3.7.5' # 指定 Flutter 版本
 
-#      - name: Setup - gcloud / gsutil
-#        uses: GoogleCloudPlatform/github-actions/setup-gcloud@v1
-#        with:
-#          service_account_key: ${{ secrets.GCP_SA_KEY }}
-#          #          project_id: ${{ secrets.GCS_PROJECT }}
-#          export_default_credentials: true
-
       - name: Auth
         uses: google-github-actions/auth@v1
         with:
@@ -86,16 +79,16 @@ jobs:
           flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/" --web-renderer html
 #          flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/TestFlutterWebGithubActions/" --web-renderer html
   
-#      - name: Deploy to GitHub Pages
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.TOKEN }}
-#          publish_dir: ./build/web
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./build/web
 
-      - name: Deploy
-        run: |
-          gsutil -m cp -r ./build/web/* gs://${{ env.BUCKET_NAME }}/
-#          gsutil -m cp -r ./build/web/* gs://${{ env.BUCKET_NAME }}/${{ env.env_variables }}/
+#      - name: Deploy
+#        run: |
+#          gsutil -m cp -r ./build/web/* gs://${{ env.BUCKET_NAME }}/
+##          gsutil -m cp -r ./build/web/* gs://${{ env.BUCKET_NAME }}/${{ env.env_variables }}/
 
   job_notify:
     name: Notify
