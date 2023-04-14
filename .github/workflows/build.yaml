@@ -43,7 +43,7 @@ jobs:
       env_variables: debug
       BUCKET_NAME: test_flutter_bucket
     needs: job_check
-#    if: ${{ github.event.action == 'closed' }}
+    if: ${{ github.event.action == 'closed' }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
