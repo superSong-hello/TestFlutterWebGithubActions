@@ -27,9 +27,9 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+<!--  <link rel="icon" type="image/png" href="favicon.png"/>-->
 
-  <title>github_actions_flutterweb</title>
+  <title>flutterweb</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
@@ -42,9 +42,20 @@
 <body>
   <script>
     window.addEventListener('load', function(ev) {
-
-    // ADD THIS LINE 
-    navigator.serviceWorker.register('/TestFlutterWebGithubActions/firebase-messaging-sw.js');
+      
+    // ADD THIS LINE
+    navigator.serviceWorker.register('firebase-messaging-sw.js')
+    .then((registration) => {
+            // 注册成功
+            // 这里可以添加更多的逻辑代码
+            console.log('Service Worker registered successfully');
+          })
+          .catch((err) => {
+            // 注册失败
+            // 这里可以添加错误处理代码
+            console.log('Service Worker registered fail' + err);
+            console.log('Service Worker registered fail');
+          });
 
     // Wait for registration to finish before dropping the <script> tag.
     // Otherwise, the browser will load the script multiple times,

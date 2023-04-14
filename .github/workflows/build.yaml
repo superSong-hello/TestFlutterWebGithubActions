@@ -74,21 +74,28 @@ jobs:
         if: github.event.pull_request.base.ref == 'main'
         run: echo "env_variables=release" >> $GITHUB_ENV
         
+#      - name: Build Web
+#        run: |
+#          flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/TestFlutterWebGithubActions/" --web-renderer html
+#
+#      - name: Deploy to GitHub Pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.TOKEN }}
+#          publish_dir: ./build/web
+
       - name: Build Web
         run: |
-          flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/TestFlutterWebGithubActions/" --web-renderer html
-#          flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/" --web-renderer html
-  
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./build/web
+          flutter build web --dart-define=MODE="${{ env.env_variables }}" --base-href="/" --web-renderer html
 
 #      - name: Deploy
 #        run: |
 #          gsutil -m cp -r ./build/web/* gs://${{ env.BUCKET_NAME }}/
 ##          gsutil -m cp -r ./build/web/* gs://${{ env.BUCKET_NAME }}/${{ env.env_variables }}/
+
+       - name: Deploy
+         run: |
+           gcloud app deploy --project testflutterweb-f0895
 
   job_notify:
     name: Notify
