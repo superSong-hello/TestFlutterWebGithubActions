@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'firebase_options.dart';
 import 'home.dart';
+import 'package:clipboard/clipboard.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 /// protoc --proto_path=protos/ --dart_out=grpc:lib/src/generated/label/v1 -Iprotos/ protos/label.proto
 void main() async {
@@ -39,11 +41,12 @@ void main() async {
     }
   });
 
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(ProviderScope(child: MyApp(fcmToken: fcmToken ?? '')));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.fcmToken});
+  final String fcmToken;
 
   // This widget is the root of your application.
   @override
@@ -52,7 +55,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: env,
       theme: ThemeData(primarySwatch: Colors.blue, cardColor: Colors.white),
-      home: const MyHomePage(title: env),
+      home: MyHomePage(title: env, fcmToken: fcmToken),
+      builder: FToastBuilder(),
     );
   }
 
@@ -63,8 +67,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, required this.fcmToken});
   final String title;
+  final String fcmToken;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -157,6 +162,13 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            InkWell(
+              child: Text(widget.fcmToken),
+              onTap: () {
+                FlutterClipboard.copy(widget.fcmToken).then(( value ) =>
+                    Fluttertoast.showToast(msg: 'copy success'));
+              },
+            ),
             const Text(
               'You have pushed the button this many times:',
             ),
