@@ -15,21 +15,29 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // FirebaseMessaging messaging = FirebaseMessaging.instance;
-  // NotificationSettings settings = await messaging.requestPermission(
-  //   alert: true,
-  //   announcement: false,
-  //   badge: true,
-  //   carPlay: false,
-  //   criticalAlert: false,
-  //   provisional: false,
-  //   sound: true,
-  // );
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
+  debugPrint('User granted permission: ${settings.authorizationStatus}');
 
-  final fcmToken = await FirebaseMessaging.instance.getToken(
-      vapidKey:
-          "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g");
-  debugPrint(fcmToken);
+  var fcmToken = '';
+  try {
+    fcmToken =
+    await FirebaseMessaging.instance.getToken(
+        vapidKey:
+        "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g") ?? '';
+    debugPrint(fcmToken);
+  } catch(e) {
+    fcmToken = 'get token fail';
+    debugPrint(e.toString());
+  }
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
     debugPrint('Got a message whilst in the foreground!');
