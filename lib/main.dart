@@ -15,29 +15,29 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
-  NotificationSettings settings = await messaging.requestPermission(
-    alert: true,
-    announcement: false,
-    badge: true,
-    carPlay: false,
-    criticalAlert: false,
-    provisional: false,
-    sound: true,
-  );
-  debugPrint('User granted permission: ${settings.authorizationStatus}');
-
+  // FirebaseMessaging messaging = FirebaseMessaging.instance;
+  // NotificationSettings settings = await messaging.requestPermission(
+  //   alert: true,
+  //   announcement: false,
+  //   badge: true,
+  //   carPlay: false,
+  //   criticalAlert: false,
+  //   provisional: false,
+  //   sound: true,
+  // );
+  // debugPrint('User granted permission: ${settings.authorizationStatus}');
+  //
   var fcmToken = '';
-  try {
-    fcmToken =
-    await FirebaseMessaging.instance.getToken(
-        vapidKey:
-        "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g") ?? '';
-    debugPrint(fcmToken);
-  } catch(e) {
-    fcmToken = 'get token fail';
-    debugPrint(e.toString());
-  }
+  // try {
+  //   fcmToken =
+  //   await FirebaseMessaging.instance.getToken(
+  //       vapidKey:
+  //       "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g") ?? '';
+  //   debugPrint(fcmToken);
+  // } catch(e) {
+  //   fcmToken = 'get token fail';
+  //   debugPrint(e.toString());
+  // }
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
     debugPrint('Got a message whilst in the foreground!');
@@ -85,6 +85,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _token = '';
 
   // It is assumed that all messages contain a data field with the key 'type'
   Future<void> setupInteractedMessage() async {
@@ -116,10 +117,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    _token = widget.fcmToken;
 
     // Run code required to handle interacted messages in an async function
     // as initState() must not be async
-    setupInteractedMessage();
+    // setupInteractedMessage();
   }
 
   void _incrementCounter() {
@@ -134,6 +136,36 @@ class _MyHomePageState extends State<MyHomePage> {
     //   // called again, and so nothing would appear to happen.
     //   _counter++;
     // });
+  }
+
+  void _getPermission() async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    NotificationSettings settings = await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+    debugPrint('User granted permission: ${settings.authorizationStatus}');
+
+    var _fcmToken = '';
+    try {
+      _fcmToken =
+          await FirebaseMessaging.instance.getToken(
+          vapidKey:
+          "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g") ?? '';
+      debugPrint(_fcmToken);
+    } catch(e) {
+      _fcmToken = 'get token fail';
+      debugPrint(e.toString());
+    } finally {
+      setState(() {
+        _token = _fcmToken;
+      });
+    }
   }
 
   @override
@@ -171,12 +203,20 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             InkWell(
-              child: Text(widget.fcmToken),
+              child: Text('click get permission'),
               onTap: () {
-                FlutterClipboard.copy(widget.fcmToken).then(( value ) =>
+                _getPermission();
+              },
+            ),
+            SizedBox(height: 20,),
+            InkWell(
+              child: Text(_token),
+              onTap: () {
+                FlutterClipboard.copy(_token).then(( value ) =>
                     Fluttertoast.showToast(msg: 'copy success'));
               },
             ),
+            SizedBox(height: 20,),
             const Text(
               'You have pushed the button this many times:',
             ),
