@@ -36,6 +36,9 @@ images:
     $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
 options:
   substitutionOption: ALLOW_LOOSE
+  logging: CLOUD_LOGGING_ONLY
+  build:
+    logs_bucket: 'my-logs-bucket'
 substitutions:
   _SERVICE_NAME: test-flutter-web-dev
   REPO_NAME: testflutterwebgithubactions
