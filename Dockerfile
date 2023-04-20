@@ -7,10 +7,12 @@ ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
 # 安装应用程序依赖项
 WORKDIR /app
-COPY pubspec.* .
+
+# 复制 pubspec 文件并获取依赖项
+COPY pubspec.* ./
 RUN flutter pub get
 
-# 将应用程序代码复制到容器中
+# 复制整个项目
 COPY . .
 
 # 构建 Web 版本的应用程序
@@ -20,4 +22,4 @@ RUN flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer ht
 FROM nginx
 COPY --from=builder /app/build/web /usr/share/nginx/html
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
