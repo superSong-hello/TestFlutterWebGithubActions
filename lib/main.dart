@@ -1,43 +1,60 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'firebase_options.dart';
+import 'home.dart';
+import 'package:clipboard/clipboard.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
+/// protoc --proto_path=protos/ --dart_out=grpc:lib/src/generated/label/v1 -Iprotos/ protos/label.proto
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
-
-  NotificationSettings settings = await messaging.requestPermission(
-    alert: true,
-    announcement: false,
-    badge: true,
-    carPlay: false,
-    criticalAlert: false,
-    provisional: false,
-    sound: true,
-  );
-
-  debugPrint('User granted permission: ${settings.authorizationStatus}');
-
-  final fcmToken = await FirebaseMessaging.instance.getToken(
-      vapidKey:
-          "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g");
-  debugPrint(fcmToken);
+  // FirebaseMessaging messaging = FirebaseMessaging.instance;
+  // NotificationSettings settings = await messaging.requestPermission(
+  //   alert: true,
+  //   announcement: false,
+  //   badge: true,
+  //   carPlay: false,
+  //   criticalAlert: false,
+  //   provisional: false,
+  //   sound: true,
+  // );
+  // debugPrint('User granted permission: ${settings.authorizationStatus}');
+  //
+  var fcmToken = '';
+  // try {
+  //   fcmToken =
+  //   await FirebaseMessaging.instance.getToken(
+  //       vapidKey:
+  //       "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g") ?? '';
+  //   debugPrint(fcmToken);
+  // } catch(e) {
+  //   fcmToken = 'get token fail';
+  //   debugPrint(e.toString());
+  // }
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    debugPrint('Got a message whilst in the foreground!');
+    debugPrint('Message data: ${message.data}');
+
     if (message.notification != null) {
-      // debugPrint(messaging);
+      debugPrint(
+          'Message also contained a notification: ${message.notification}');
     }
   });
 
-  runApp(const MyApp());
+  runApp(ProviderScope(child: MyApp(fcmToken: fcmToken ?? '')));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.fcmToken});
+  final String fcmToken;
 
   // This widget is the root of your application.
   @override
@@ -45,10 +62,9 @@ class MyApp extends StatelessWidget {
     const env = String.fromEnvironment('MODE');
     return MaterialApp(
       title: env,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: env),
+      theme: ThemeData(primarySwatch: Colors.blue, cardColor: Colors.white),
+      home: MyHomePage(title: env, fcmToken: fcmToken),
+      builder: FToastBuilder(),
     );
   }
 
@@ -59,8 +75,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, required this.fcmToken});
   final String title;
+  final String fcmToken;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -68,16 +85,87 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _token = '';
+
+  // It is assumed that all messages contain a data field with the key 'type'
+  Future<void> setupInteractedMessage() async {
+    // Get any messages which caused the application to open from
+    // a terminated state.
+    RemoteMessage? initialMessage =
+        await FirebaseMessaging.instance.getInitialMessage();
+
+    // If the message also contains a data property with a "type" of "chat",
+    // navigate to a chat screen
+    if (initialMessage != null) {
+      _handleMessage(initialMessage);
+    }
+
+    // Also handle any interaction when the app is in the background via a
+    // Stream listener
+    FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
+  }
+
+  void _handleMessage(RemoteMessage message) {
+    if (message.data['type'] == 'chat') {
+      debugPrint('RemoteMessage data: ${message.data}');
+      // Navigator.pushNamed(context, '/chat',
+      //   arguments: ChatArguments(message),
+      // );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _token = widget.fcmToken;
+
+    // Run code required to handle interacted messages in an async function
+    // as initState() must not be async
+    // setupInteractedMessage();
+  }
 
   void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+      return const HomePage();
+    }));
+    // setState(() {
+    //   // This call to setState tells the Flutter framework that something has
+    //   // changed in this State, which causes it to rerun the build method below
+    //   // so that the display can reflect the updated values. If we changed
+    //   // _counter without calling setState(), then the build method would not be
+    //   // called again, and so nothing would appear to happen.
+    //   _counter++;
+    // });
+  }
+
+  void _getPermission() async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    NotificationSettings settings = await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+    debugPrint('User granted permission: ${settings.authorizationStatus}');
+
+    var _fcmToken = '';
+    try {
+      _fcmToken =
+          await FirebaseMessaging.instance.getToken(
+          vapidKey:
+          "BLqiFPaqeIPW6-y10LLBuEJV0qMdxFmjbI2A_GlpxgSX2Fqa8Wm3uzRkXyqPc3e_ZG3nlcO7dxHX_mM218PdC3g") ?? '';
+      debugPrint(_fcmToken);
+    } catch(e) {
+      _fcmToken = 'get token fail';
+      debugPrint(e.toString());
+    } finally {
+      setState(() {
+        _token = _fcmToken;
+      });
+    }
   }
 
   @override
@@ -114,6 +202,21 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            InkWell(
+              child: Text('click get permission'),
+              onTap: () {
+                _getPermission();
+              },
+            ),
+            SizedBox(height: 20,),
+            InkWell(
+              child: Text(_token),
+              onTap: () {
+                FlutterClipboard.copy(_token).then(( value ) =>
+                    Fluttertoast.showToast(msg: 'copy success'));
+              },
+            ),
+            SizedBox(height: 20,),
             const Text(
               'You have pushed the button this many times:',
             ),

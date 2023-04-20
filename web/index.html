@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -25,44 +25,154 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="github_actions_flutterweb">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="stylesheet" type="text/css" href="index.css">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>github_actions_flutterweb</title>
+  <title>flutter web test FCM</title>
   <link rel="manifest" href="manifest.json">
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+<!--  <script>-->
+<!--    // The value below is injected by flutter build, do not touch.-->
+<!--    var serviceWorkerVersion = null;-->
+<!--  </script>-->
+<!--  &lt;!&ndash; This script adds the flutter initialization JS code &ndash;&gt;-->
+<!--  <script src="flutter.js" defer></script>-->
 </head>
-<body>
-  <script>
-    window.addEventListener('load', function(ev) {
 
-    // ADD THIS LINE
-            navigator.serviceWorker.register('/firebase-messaging-sw.js');
+<body oncontextmenu="return false;">
 
-            // Wait for registration to finish before dropping the <script> tag.
-            // Otherwise, the browser will load the script multiple times,
-            // potentially different versions.
-            var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
+<div id="loading">
+  <div class="spinner">
+    <div class="re1"></div>
+    <div class="re2"></div>
+    <div class="re3"></div>
+    <div class="re4"></div>
+    <div class="re5"></div>
+  </div>
+  <div class="info">
+    <p>loading...</p>
+    <!--      <p>初次加载资源比较慢</p>-->
+  </div>
+</div>
 
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
+<script>
+    var serviceWorkerVersion = null;
+    var scriptLoaded = false;
+    function loadMainDartJs() {
+      if (scriptLoaded) {
+        return;
+      }
+      scriptLoaded = true;
+      var scriptTag = document.createElement('script');
+      scriptTag.src = 'main.dart.js';
+      scriptTag.type = 'application/javascript';
+      document.body.append(scriptTag);
+    }
+
+    if ('serviceWorker' in navigator) {
+      // Service workers are supported. Use them.
+      window.addEventListener('load', function () {
+        // Wait for registration to finish before dropping the <script> tag.
+        // Otherwise, the browser will load the script multiple times,
+        // potentially different versions.
+        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
+        navigator.serviceWorker.register(serviceWorkerUrl)
+          .then((reg) => {
+            function waitForActivation(serviceWorker) {
+              serviceWorker.addEventListener('statechange', () => {
+                if (serviceWorker.state == 'activated') {
+                  console.log('Installed new service worker.');
+                  loadMainDartJs();
+                }
+              });
+            }
+            if (!reg.active && (reg.installing || reg.waiting)) {
+              // No active web worker and we have installed or are installing
+              // one for the first time. Simply wait for it to activate.
+              waitForActivation(reg.installing ?? reg.waiting);
+            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
+              // When the app updates the serviceWorkerVersion changes, so we
+              // need to ask the service worker to update.
+              console.log('New service worker available.');
+              reg.update();
+              waitForActivation(reg.installing);
+            } else {
+              // Existing service worker is still good.
+              console.log('Loading app from service worker.');
+              loadMainDartJs();
+            }
           });
-        }
+
+        // If service worker doesn't succeed in a reasonable amount of time,
+        // fallback to plaint <script> tag.
+        setTimeout(() => {
+          if (!scriptLoaded) {
+            console.warn(
+              'Failed to load app from service worker. Falling back to plain <script> tag.',
+            );
+            loadMainDartJs();
+          }
+        }, 4000);
       });
+
+      window.addEventListener('load', function(ev) {
+
+    // Register FCM
+    navigator.serviceWorker.register('firebase-messaging-sw.js')
+    .then((registration) => {
+            // 注册成功
+            // 这里可以添加更多的逻辑代码
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch((err) => {
+            // 注册失败
+            // 这里可以添加错误处理代码
+            console.log('Service Worker registered fail：' + err);
+          });
     });
+
+    } else {
+      // Service workers not supported. Just drop the <script> tag.
+      loadMainDartJs();
+    }
   </script>
+
+<!--  <script>-->
+<!--    window.addEventListener('load', function(ev) {-->
+
+<!--    // ADD THIS LINE-->
+<!--    navigator.serviceWorker.register('firebase-messaging-sw.js')-->
+<!--    .then((registration) => {-->
+<!--            // 注册成功-->
+<!--            // 这里可以添加更多的逻辑代码-->
+<!--            console.log('Service Worker registered successfully');-->
+<!--          })-->
+<!--          .catch((err) => {-->
+<!--            // 注册失败-->
+<!--            // 这里可以添加错误处理代码-->
+<!--            console.log('Service Worker registered fail' + err);-->
+<!--            console.log('Service Worker registered fail');-->
+<!--          });-->
+
+<!--    // Wait for registration to finish before dropping the <script> tag.-->
+<!--    // Otherwise, the browser will load the script multiple times,-->
+<!--    // potentially different versions.-->
+<!--    var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;-->
+
+<!--      // Download main.dart.js-->
+<!--      _flutter.loader.loadEntrypoint({-->
+<!--        serviceWorker: {-->
+<!--          serviceWorkerVersion: serviceWorkerVersion,-->
+<!--        },-->
+<!--        onEntrypointLoaded: function(engineInitializer) {-->
+<!--          engineInitializer.initializeEngine().then(function(appRunner) {-->
+<!--            appRunner.runApp();-->
+<!--          });-->
+<!--        }-->
+<!--      });-->
+<!--    });-->
+<!--  </script>-->
 </body>
 </html>
