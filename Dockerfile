@@ -1,24 +1,23 @@
-# 使用 Flutter Docker 镜像作为基础镜像
-FROM gcr.io/flutter-codespaces/flutter:3.7.5
+# 使用官方 Flutter 镜像
+FROM google/dart AS builder
 
-# 安装其他系统依赖，如果有需要的话
-# RUN apt-get update && \
-#     apt-get install -y <your_dependencies_here>
+# 安装 Flutter SDK
+RUN git clone https://github.com/flutter/flutter.git /flutter
+ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
-# 复制应用程序代码到容器中
-COPY . /app
-
-# 切换工作目录到应用程序代码所在目录
+# 安装应用程序依赖项
 WORKDIR /app
-
-# 获取项目所需的依赖项
+COPY pubspec.* .
 RUN flutter pub get
+
+# 将应用程序代码复制到容器中
+COPY . .
 
 # 构建 Web 版本的应用程序
 RUN flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer html
 
 # 配置 Nginx 服务器，用于提供 Web 应用程序的静态文件
-FROM nginx:1.21.3-alpine
-COPY --from=0 /app/build/web /usr/share/nginx/html
+FROM nginx
+COPY --from=builder /app/build/web /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
