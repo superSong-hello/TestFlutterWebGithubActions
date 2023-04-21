@@ -1,20 +1,31 @@
 # 使用官方 Flutter 镜像
-FROM google/dart AS builder
+FROM cirrusci/flutter AS builder
+# FROM google/dart AS builder
 
-# 安装 Flutter SDK
-RUN git clone https://github.com/flutter/flutter.git /flutter
-ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
+# # 安装依赖
+# RUN apt-get update && \
+#     apt-get install -y curl git unzip xz-utils zip libglu1-mesa
+#
+# # 安装 Flutter SDK
+# RUN git clone https://github.com/flutter/flutter.git -b stable --depth 1
+# ENV PATH="$PATH:/flutter/bin"
 
+# 设置工作目录
 WORKDIR /app
+
+# 复制 Flutter 应用程序源代码
 COPY . /app
-RUN flutter pub get
 
-# 构建 Web 版本的应用程序
-RUN flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer html
+# 获取依赖并构建应用程序
+RUN flutter pub get && \
+    flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer html
 
-# 配置 Nginx 服务器，用于提供 Web 应用程序的静态文件
+# # 开放 80 端口
+# EXPOSE 80
+#
+# # 启动应用程序
+# CMD ["flutter", "run", "-d", "web-server", "--web-hostname", "0.0.0.0", "--web-port", "80"]
+
+# 创建生产用映像
 FROM nginx
-WORKDIR /app
 COPY --from=builder /app/build/web /usr/share/nginx/html
-EXPOSE 80
-# CMD ["nginx", "-g", "daemon off;"]
