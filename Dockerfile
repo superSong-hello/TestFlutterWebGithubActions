@@ -28,4 +28,4 @@ RUN flutter pub get && \
 
 # 创建生产用映像
 FROM nginx
-COPY --from=builder /app/build/web /usr/share/nginx/html
+COPY --from=builder /app/build/web/ /usr/share/nginx/html/
