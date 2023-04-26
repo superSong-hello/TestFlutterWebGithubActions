@@ -1,0 +1,17 @@
+#steps:
+#  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#    entrypoint: 'bash'
+#    args: ['-c', 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy']
+
+steps:
+  # Install Flutter SDK
+  - name: 'gcr.io/cloud-builders/flutter'
+    entrypoint: /bin/sh
+    args: ['-c', 'flutter channel stable && flutter upgrade && flutter pub get']
+  # Build Flutter Web app
+  - name: 'gcr.io/cloud-builders/flutter'
+    entrypoint: /bin/sh
+    args: ['-c', 'flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer html']
+  # Upload to GAE
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', 'app.yaml']
