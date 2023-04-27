@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'label_client.dart';
 
@@ -23,8 +24,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       debugPrint('addPostFrameCallback');
     });
-
-    request();
   }
 
   Future<void> request() async {
@@ -38,6 +37,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       debugPrint(response.message);
       debugPrint(response.table0.toString());
     } catch (e) {
+      Fluttertoast.showToast(msg: e.toString());
       debugPrint(e.toString());
     }
   }
@@ -73,6 +73,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     debugPrint('build');
     return Scaffold(
+      floatingActionButton: TextButton(
+        child: const Text('Request GRPC'),
+        onPressed: () => request(),
+      ),
       appBar: AppBar(
         title: InkWell(
           child: Text(title),

@@ -1,3 +1,4 @@
+import 'package:build_grpc_channel/build_grpc_channel.dart';
 import 'package:grpc/grpc.dart';
 import 'generated/label/v1/label.pbgrpc.dart';
 
@@ -10,9 +11,7 @@ class LabelClient {
   }
   late final LabelServiceClient stub;
 
-  final channel = ClientChannel(
-    'okami-stg.retail-ai.jp',
-  );
+  final channel = buildGrpcChannel(host: 'okami-stg.retail-ai.jp');
 
   final options = CallOptions(
     timeout: const Duration(seconds: 20),
