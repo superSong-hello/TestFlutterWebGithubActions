@@ -1,0 +1,88 @@
+name: daifuku_project
+repository: https://github.com/retail-ai-inc/daifuku
+
+packages:
+  - packages/**
+
+scripts:
+
+  ### 静的解析、テストなど
+
+  analyze:
+    description: 全パッケージにリントを行います
+    run: |
+      melos exec -- \
+        flutter analyze . --fatal-infos
+    packageFilters:
+      dirExists: lib
+      scope: daifuku
+
+  format:
+    description: コードフォーマットを行います
+    run: |
+      melos exec -- \
+        dart format --fix lib/
+    packageFilters:
+      dirExists: lib
+
+  format:ci:
+    description: CIで実行するコードフォーマットチェック。未フォーマットなら失敗します。
+    run: |
+      melos exec -- \
+        dart format --set-exit-if-changed lib/
+    packageFilters:
+      dirExists: lib
+      scope: daifuku
+
+  test:
+    description: テストを実行します
+    run: |
+      melos exec --fail-fast -- \
+        flutter test --coverage
+    packageFilters:
+      dirExists: test
+      scope: daifuku
+
+  metrics:
+    description: dart_code_metricsをPACERパッケージで実行します
+    run: |
+      melos exec -c 1 --ignore="*example*" -- \
+        flutter pub run dart_code_metrics:metrics analyze lib
+    packageFilters:
+      dirExists: lib
+      scope: daifuku
+
+  metrics:html:
+    description: metricsの結果をHTMLとして出力します
+    run: |
+      melos exec -c 1 --ignore="*example*" -- \
+        flutter pub run dart_code_metrics:metrics analyze lib --reporter=html
+    packageFilters:
+      dirExists: lib
+      scope: daifuku
+
+  ### Build
+  
+  build:flutterWeb:dev:
+    run: |
+      melos exec -c 1 -- \
+        "flutter pub get && flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer html"
+    packageFilters:
+      dirExists: lib
+      scope: daifuku
+
+  build:flutterWeb:stg:
+    run: |
+      melos exec -c 1 -- \
+        "flutter pub get && flutter build web --dart-define=MODE=stg --base-href="/" --web-renderer html"
+    packageFilters:
+      dirExists: lib
+      scope: daifuku
+
+  build:flutterWeb:prod:
+    run: |
+      melos exec -c 1 -- \
+        "flutter pub get && flutter build web --dart-define=MODE=release --base-href="/" --web-renderer html"
+    packageFilters:
+      dirExists: lib
+      scope: daifuku
