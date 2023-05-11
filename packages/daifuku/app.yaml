@@ -9,4 +9,3 @@ handlers:
   - url: /(.*)
     static_files: build/web/\1
     upload: build/web/(.*)
-    
