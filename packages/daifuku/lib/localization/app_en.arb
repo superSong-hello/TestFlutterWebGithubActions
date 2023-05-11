@@ -1,0 +1,14 @@
+{
+  "account": "Account",
+  "password": "Password",
+  "login": "Login",
+  "logout": "Logout",
+  "request_fail": "Failed to connect to the server, please check whether the network is normal",
+  "request_timeout": "The connection to the server timed out, please check whether the network is normal",
+  "need_login": "Not Login",
+  "forbidden": "No Access",
+  "server_fail": "There is a problem with the server, please try again later access forbidden",
+  "server_exception": "There is a problem with the server, please try again later access forbidden",
+  "load_fail": "Failed to load",
+  "reload": "Reload"
+}

@@ -1,0 +1,123 @@
+include: package:very_good_analysis/analysis_options.yaml
+linter:
+  rules:
+    # 所有的公用类及方法添加注释;
+    # 理由：不要为了添加注释而添加注释，主要属性、方法、类添加注释就可以
+    public_member_api_docs: false
+    # 函数或方法的命名参数列表中，将必需的命名参数放在非必需的命名参数之前
+    # 理由：默认super.key放在第一位
+    always_put_required_named_parameters_first: false
+    # 避免将私有类型暴露在公共 API 中
+    # 理由：可变组件里生成State默认用生成私用类，不允许外部访问
+    library_private_types_in_public_api: false
+    # 理由：对于无返回值的Function没有问题
+    avoid_dynamic_calls: false
+    # 避免在同一行中声明多个变量或常量
+    # 理由：同一个类型声明多个成员变量没有问题
+    avoid_multiple_declarations_per_line: false
+    # 建议优先使用构造函数来创建对象，而不是使用静态方法
+    # 理由：工具类里面定义静态方法很正常
+    prefer_constructors_over_static_methods: false
+analyzer:
+  language:
+    # 确保类型推理引擎永远不会隐式转换dynamic为更具体的类型
+    strict-casts: true
+    # 确保类型推理引擎dynamic在无法确定静态类型时永远不会选择类型
+    strict-inference: true
+    # 确保类型推理引擎dynamic在由于省略类型参数而无法确定静态类型时永远不会选择类型
+    strict-raw-types: true
+  exclude:
+    - lib/pages/test/**
+    - test/**
+    - "**/build/**"
+    - lib/configs/constant.dart
+    - lib/configs/color.dart
+    - pubspec.yaml
+    - lib/generated/**
+    - Dockerfile-dev
+    - Dockerfile-stg
+    - Dockerfile-prod
+    - nginx.conf
+  errors:
+    # allow having TODOs in the code
+    todo: ignore
+    # treat missing returns as a warning (not a hint)
+    missing_return: error
+    # treat missing required parameters as a warning (not a hint)
+    missing_required_param: warning
+    # Ignore analyzer hints for updating pubspecs when using Future or
+    # Stream and not importing dart:async
+    # Please see https://github.com/flutter/flutter/pull/24528 for details.
+    sdk_version_async_exported_from_core: ignore
+
+dart_code_metrics:
+  metrics:
+    cyclomatic-complexity: 20
+    halstead-volume: 150
+    maximum-nesting-level: 3
+    number-of-methods: 10
+    number-of-parameters: 4
+    lines-of-code: 100
+    source-lines-of-code: 100
+    weight-of-class: 0.33
+  metrics-exclude:
+    - lib/pages/test/**
+    - test/**
+    - "**/build/**"
+    - lib/configs/constant.dart
+    - lib/configs/color.dart
+    - pubspec.yaml
+    - lib/generated/**
+    - Dockerfile-dev
+    - Dockerfile-stg
+    - Dockerfile-prod
+    - nginx.conf
+  rules:
+    # Dart
+    #    - avoid-banned-imports
+    - avoid-collection-methods-with-unrelated-types
+    - avoid-duplicate-exports
+    # - avoid-dynamic
+    - avoid-global-state
+    # - avoid-ignoring-return-values
+    # - avoid-late-keyword
+    - avoid-missing-enum-constant-in-map
+    # i18n本格対応するならこれも有効にする
+    # - avoid-non-ascii-symbols
+#    - avoid-non-null-assertion
+    # - avoid-throw-in-catch-block
+    # - avoid-top-level-members-in-tests
+    - avoid-unnecessary-type-assertions
+    - avoid-unnecessary-type-casts
+    - avoid-unrelated-type-assertions
+    # - avoid-unused-parameters
+    - binary-expression-operand-order
+    - double-literal-format
+    - newline-before-return
+    - no-boolean-literal-compare
+    # - no-empty-block
+    # 有効にしてもいいかも？
+    # - no-equal-arguments
+    - no-equal-then-else
+    # - no-magic-number
+    # - no-object-declaration
+#    - prefer-async-await
+    - prefer-commenting-analyzer-ignores
+    # - prefer-conditional-expressions
+    - prefer-correct-type-name
+    - prefer-enums-by-name
+    - prefer-first
+    - prefer-immediate-return
+    - prefer-last
+    # 後で有効にするかも
+    # - prefer-match-file-name
+    - prefer-moving-to-variable:
+        allowed-duplicated-chains: 4
+    - tag-name
+    # Flutter
+    - always-remove-listener
+    - avoid-shrink-wrap-in-lists:
+        severity: waring
+    - avoid-unnecessary-setstate
+    - avoid-expanded-as-spacer
+    - avoid-wrapping-in-padding
