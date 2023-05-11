@@ -9,6 +9,7 @@ steps:
     args: ['-c', 'cd packages/daifuku/ && flutter pub get && flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer html']
   # Upload to GAE
   - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
     args:
     - '-c'
     - |
