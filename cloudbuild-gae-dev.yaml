@@ -2,7 +2,7 @@ steps:
   # Install Flutter SDK && Build Flutter Web app
   - name: 'cirrusci/flutter'
     entrypoint: /bin/sh
-    args: ['-c', 'melos build:flutterWeb:dev']
+    args: ['-c', 'dart pub get && melos build:flutterWeb:dev']
   # Upload to GAE
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
