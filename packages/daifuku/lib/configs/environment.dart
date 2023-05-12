@@ -15,33 +15,35 @@ class Env {
 
   static EnvConfig get envConfig => _getEnvConfig();
 
-  // debug
-  static final EnvConfig _debugConfig = EnvConfig(
-    appTitle: 'debug',
+  // dev
+  static final EnvConfig _devConfig = EnvConfig(
+    appTitle: 'dev',
     appDomain: 'https://okami-stg.retail-ai.jp',
   );
-  // release
-  static final EnvConfig _releaseConfig = EnvConfig(
-    appTitle: 'release',
-    appDomain: 'https://okami-stg.retail-ai.jp',
-  );
+
   // stg
   static final EnvConfig _stgConfig = EnvConfig(
     appTitle: 'stg',
     appDomain: 'https://okami-stg.retail-ai.jp',
   );
 
+  // prod
+  static final EnvConfig _prodConfig = EnvConfig(
+    appTitle: 'prod',
+    appDomain: 'https://okami.retail-ai.jp',
+  );
+
   // return current env config
   static EnvConfig _getEnvConfig() {
     switch (appEnv) {
-      case EnvName.debug:
-        return _debugConfig;
-      case EnvName.release:
-        return _releaseConfig;
+      case EnvName.dev:
+        return _devConfig;
       case EnvName.stg:
         return _stgConfig;
+      case EnvName.prod:
+        return _prodConfig;
       default:
-        return _debugConfig;
+        return _devConfig;
     }
   }
 }
@@ -50,7 +52,7 @@ abstract class EnvName {
   // env key
   static const String envKey = 'MODE';
   // env value
-  static const String debug = 'debug';
+  static const String dev = 'dev';
   static const String stg = 'stg';
-  static const String release = 'release';
+  static const String prod = 'prod';
 }

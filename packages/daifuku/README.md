@@ -14,11 +14,11 @@ flutter config --enable-web
 Install pub:
 flutter pub get
 
-Run: (MODE=debug/stg/release; --web-renderer html/canvaskit)
-flutter run -d chrome --dart-define=MODE=debug --web-renderer html
+Run: (MODE=dev/stg/prod; --web-renderer html/canvaskit)
+flutter run -d chrome --dart-define=MODE=dev --web-renderer html
 
 Build: 
-flutter build web --dart-define=MODE=debug --base-href="/daifuku/" --web-renderer html
+flutter build web --dart-define=MODE=dev --base-href="/daifuku/" --web-renderer html
 
 Lint:
 dart format lib/

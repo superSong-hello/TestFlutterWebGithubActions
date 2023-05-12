@@ -1,4 +1,4 @@
-name: build_and_deploy
+name: CI
 
 on:
   pull_request:
@@ -31,15 +31,3 @@ jobs:
 
       - name: Run unit tests
         run: melos run test
-
-#      - name: Analyze project
-#        run: flutter analyze
-#
-#      - name: Check for the existence of unformatted files
-#        run: dart format --set-exit-if-changed lib/
-#
-#      - name: Metrics project
-#        run: flutter pub run dart_code_metrics:metrics analyze lib/
-#
-#      - name: Test project
-#        run: flutter test
