@@ -16,7 +16,7 @@ class GetTmsts0085Request_Date extends $pb.GeneratedMessage {
           ? ''
           : 'GetTmsts0085Request.Date',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'system.v1'),
       createEmptyInstance: create)
@@ -130,7 +130,7 @@ class GetTmsts0085Request extends $pb.GeneratedMessage {
           ? ''
           : 'GetTmsts0085Request',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'system.v1'),
       createEmptyInstance: create)
@@ -242,7 +242,7 @@ class GetTmsts0085Response_RspHead_Args extends $pb.GeneratedMessage {
           ? ''
           : 'GetTmsts0085Response.RspHead.Args',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'system.v1'),
       createEmptyInstance: create)
@@ -289,7 +289,7 @@ class GetTmsts0085Response_RspHead_FieldMessages extends $pb.GeneratedMessage {
           ? ''
           : 'GetTmsts0085Response.RspHead.FieldMessages',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'system.v1'),
       createEmptyInstance: create)
@@ -482,7 +482,7 @@ class GetTmsts0085Response_RspHead extends $pb.GeneratedMessage {
           ? ''
           : 'GetTmsts0085Response.RspHead',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'system.v1'),
       createEmptyInstance: create)
@@ -732,7 +732,7 @@ class GetTmsts0085Response_RspPage extends $pb.GeneratedMessage {
           ? ''
           : 'GetTmsts0085Response.RspPage',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'system.v1'),
       createEmptyInstance: create)
@@ -890,7 +890,7 @@ class GetTmsts0085Response_Rec extends $pb.GeneratedMessage {
           ? ''
           : 'GetTmsts0085Response.Rec',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'system.v1'),
       createEmptyInstance: create)
@@ -1243,7 +1243,7 @@ class GetTmsts0085Response extends $pb.GeneratedMessage {
           ? ''
           : 'GetTmsts0085Response',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'system.v1'),
       createEmptyInstance: create)

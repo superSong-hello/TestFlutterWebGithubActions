@@ -10,10 +10,10 @@ import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use healthCheckRequestDescriptor instead')
-const HealthCheckRequest$json = const {
+const HealthCheckRequest$json = {
   '1': 'HealthCheckRequest',
-  '2': const [
-    const {'1': 'service', '3': 1, '4': 1, '5': 9, '10': 'service'},
+  '2': [
+    {'1': 'service', '3': 1, '4': 1, '5': 9, '10': 'service'},
   ],
 };
 
@@ -22,10 +22,10 @@ final $typed_data.Uint8List healthCheckRequestDescriptor =
     $convert.base64Decode(
         'ChJIZWFsdGhDaGVja1JlcXVlc3QSGAoHc2VydmljZRgBIAEoCVIHc2VydmljZQ==');
 @$core.Deprecated('Use healthCheckResponseDescriptor instead')
-const HealthCheckResponse$json = const {
+const HealthCheckResponse$json = {
   '1': 'HealthCheckResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'status',
       '3': 1,
       '4': 1,
@@ -34,17 +34,17 @@ const HealthCheckResponse$json = const {
       '10': 'status'
     },
   ],
-  '4': const [HealthCheckResponse_ServingStatus$json],
+  '4': [HealthCheckResponse_ServingStatus$json],
 };
 
 @$core.Deprecated('Use healthCheckResponseDescriptor instead')
-const HealthCheckResponse_ServingStatus$json = const {
+const HealthCheckResponse_ServingStatus$json = {
   '1': 'ServingStatus',
-  '2': const [
-    const {'1': 'UNKNOWN', '2': 0},
-    const {'1': 'SERVING', '2': 1},
-    const {'1': 'NOT_SERVING', '2': 2},
-    const {'1': 'SERVICE_UNKNOWN', '2': 3},
+  '2': [
+    {'1': 'UNKNOWN', '2': 0},
+    {'1': 'SERVING', '2': 1},
+    {'1': 'NOT_SERVING', '2': 2},
+    {'1': 'SERVICE_UNKNOWN', '2': 3},
   ],
 };
 

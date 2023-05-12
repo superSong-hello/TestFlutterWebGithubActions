@@ -13,25 +13,25 @@ class HealthCheckResponse_ServingStatus extends $pb.ProtobufEnum {
   static const HealthCheckResponse_ServingStatus UNKNOWN =
       HealthCheckResponse_ServingStatus._(
           0,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'UNKNOWN');
   static const HealthCheckResponse_ServingStatus SERVING =
       HealthCheckResponse_ServingStatus._(
           1,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'SERVING');
   static const HealthCheckResponse_ServingStatus NOT_SERVING =
       HealthCheckResponse_ServingStatus._(
           2,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'NOT_SERVING');
   static const HealthCheckResponse_ServingStatus SERVICE_UNKNOWN =
       HealthCheckResponse_ServingStatus._(
           3,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'SERVICE_UNKNOWN');
 

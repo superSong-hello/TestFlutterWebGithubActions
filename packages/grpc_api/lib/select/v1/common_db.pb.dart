@@ -15,7 +15,7 @@ class GetMtShortSupplyRequest_StoreProduct extends $pb.GeneratedMessage {
           ? ''
           : 'GetMtShortSupplyRequest.StoreProduct',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'select.v1'),
       createEmptyInstance: create)
@@ -109,7 +109,7 @@ class GetMtShortSupplyRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetMtShortSupplyRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'select.v1'),
       createEmptyInstance: create)
@@ -173,7 +173,7 @@ class GetMtShortSupplyResponse_ArrShortSupply_ShortSupply
           ? ''
           : 'GetMtShortSupplyResponse.ArrShortSupply.ShortSupply',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'select.v1'),
       createEmptyInstance: create)
@@ -485,7 +485,7 @@ class GetMtShortSupplyResponse_ArrShortSupply extends $pb.GeneratedMessage {
           ? ''
           : 'GetMtShortSupplyResponse.ArrShortSupply',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'select.v1'),
       createEmptyInstance: create)
@@ -575,7 +575,7 @@ class GetMtShortSupplyResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetMtShortSupplyResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'select.v1'),
       createEmptyInstance: create)
@@ -638,7 +638,7 @@ class GetMtStoreOrderCntlRequest_StoreProduct extends $pb.GeneratedMessage {
           ? ''
           : 'GetMtStoreOrderCntlRequest.StoreProduct',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'select.v1'),
       createEmptyInstance: create)
@@ -732,7 +732,7 @@ class GetMtStoreOrderCntlRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetMtStoreOrderCntlRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'select.v1'),
       createEmptyInstance: create)
@@ -796,7 +796,7 @@ class GetMtStoreOrderCntlResponse_MtStoreOrder extends $pb.GeneratedMessage {
           ? ''
           : 'GetMtStoreOrderCntlResponse.MtStoreOrder',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'select.v1'),
       createEmptyInstance: create)
@@ -1021,7 +1021,7 @@ class GetMtStoreOrderCntlResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetMtStoreOrderCntlResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'select.v1'),
       createEmptyInstance: create)

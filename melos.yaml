@@ -12,7 +12,7 @@ scripts:
     description: 全パッケージにリントを行います
     run: |
       melos exec -- \
-        flutter analyze . --fatal-infos
+      flutter analyze . --fatal-infos
     packageFilters:
       dirExists: lib
       scope: daifuku
@@ -21,7 +21,7 @@ scripts:
     description: コードフォーマットを行います
     run: |
       melos exec -- \
-        dart format --fix lib/
+      dart format --fix lib/
     packageFilters:
       dirExists: lib
 
@@ -29,7 +29,7 @@ scripts:
     description: CIで実行するコードフォーマットチェック。未フォーマットなら失敗します。
     run: |
       melos exec -- \
-        dart format --set-exit-if-changed lib/
+      dart format --set-exit-if-changed lib/
     packageFilters:
       dirExists: lib
       scope: daifuku
@@ -38,7 +38,7 @@ scripts:
     description: テストを実行します
     run: |
       melos exec --fail-fast -- \
-        flutter test --coverage
+      flutter test --coverage
     packageFilters:
       dirExists: test
       scope: daifuku
@@ -47,7 +47,7 @@ scripts:
     description: dart_code_metricsをPACERパッケージで実行します
     run: |
       melos exec -c 1 --ignore="*example*" -- \
-        flutter pub run dart_code_metrics:metrics analyze lib
+      flutter pub run dart_code_metrics:metrics analyze lib
     packageFilters:
       dirExists: lib
       scope: daifuku
@@ -56,17 +56,25 @@ scripts:
     description: metricsの結果をHTMLとして出力します
     run: |
       melos exec -c 1 --ignore="*example*" -- \
-        flutter pub run dart_code_metrics:metrics analyze lib --reporter=html
+      flutter pub run dart_code_metrics:metrics analyze lib --reporter=html
     packageFilters:
       dirExists: lib
       scope: daifuku
 
-  ### Build
-  
+  ### Build And get pub
+
+  get:pub:
+    run:
+      melos exec -c 1 -- \
+      "flutter clean && flutter pub get"
+    packageFilters:
+      dirExists: lib
+      scope: daifuku
+
   build:flutterWeb:dev:
     run: |
       melos exec -c 1 -- \
-        "flutter pub get && flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer html"
+      "flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer html"
     packageFilters:
       dirExists: lib
       scope: daifuku
@@ -74,7 +82,7 @@ scripts:
   build:flutterWeb:stg:
     run: |
       melos exec -c 1 -- \
-        "flutter pub get && flutter build web --dart-define=MODE=stg --base-href="/" --web-renderer html"
+      "flutter build web --dart-define=MODE=stg --base-href="/" --web-renderer html"
     packageFilters:
       dirExists: lib
       scope: daifuku
@@ -82,7 +90,7 @@ scripts:
   build:flutterWeb:prod:
     run: |
       melos exec -c 1 -- \
-        "flutter pub get && flutter build web --dart-define=MODE=release --base-href="/" --web-renderer html"
+      "flutter build web --dart-define=MODE=release --base-href="/" --web-renderer html"
     packageFilters:
       dirExists: lib
       scope: daifuku

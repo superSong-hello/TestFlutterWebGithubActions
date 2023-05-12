@@ -10,10 +10,10 @@ import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use getMtShortSupplyRequestDescriptor instead')
-const GetMtShortSupplyRequest$json = const {
+const GetMtShortSupplyRequest$json = {
   '1': 'GetMtShortSupplyRequest',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'store_products',
       '3': 1,
       '4': 3,
@@ -22,14 +22,14 @@ const GetMtShortSupplyRequest$json = const {
       '10': 'storeProducts'
     },
   ],
-  '3': const [GetMtShortSupplyRequest_StoreProduct$json],
+  '3': [GetMtShortSupplyRequest_StoreProduct$json],
 };
 
 @$core.Deprecated('Use getMtShortSupplyRequestDescriptor instead')
-const GetMtShortSupplyRequest_StoreProduct$json = const {
+const GetMtShortSupplyRequest_StoreProduct$json = {
   '1': 'StoreProduct',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'product_code',
       '3': 1,
       '4': 1,
@@ -38,7 +38,7 @@ const GetMtShortSupplyRequest_StoreProduct$json = const {
       '10': 'productCode',
       '17': true
     },
-    const {
+    {
       '1': 'store_code',
       '3': 2,
       '4': 1,
@@ -48,9 +48,9 @@ const GetMtShortSupplyRequest_StoreProduct$json = const {
       '17': true
     },
   ],
-  '8': const [
-    const {'1': '_product_code'},
-    const {'1': '_store_code'},
+  '8': [
+    {'1': '_product_code'},
+    {'1': '_store_code'},
   ],
 };
 
@@ -59,10 +59,10 @@ final $typed_data.Uint8List getMtShortSupplyRequestDescriptor =
     $convert.base64Decode(
         'ChdHZXRNdFNob3J0U3VwcGx5UmVxdWVzdBJWCg5zdG9yZV9wcm9kdWN0cxgBIAMoCzIvLnNlbGVjdC52MS5HZXRNdFNob3J0U3VwcGx5UmVxdWVzdC5TdG9yZVByb2R1Y3RSDXN0b3JlUHJvZHVjdHMaegoMU3RvcmVQcm9kdWN0EiYKDHByb2R1Y3RfY29kZRgBIAEoCUgAUgtwcm9kdWN0Q29kZYgBARIiCgpzdG9yZV9jb2RlGAIgASgJSAFSCXN0b3JlQ29kZYgBAUIPCg1fcHJvZHVjdF9jb2RlQg0KC19zdG9yZV9jb2Rl');
 @$core.Deprecated('Use getMtShortSupplyResponseDescriptor instead')
-const GetMtShortSupplyResponse$json = const {
+const GetMtShortSupplyResponse$json = {
   '1': 'GetMtShortSupplyResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'result',
       '3': 1,
       '4': 3,
@@ -71,14 +71,14 @@ const GetMtShortSupplyResponse$json = const {
       '10': 'result'
     },
   ],
-  '3': const [GetMtShortSupplyResponse_ArrShortSupply$json],
+  '3': [GetMtShortSupplyResponse_ArrShortSupply$json],
 };
 
 @$core.Deprecated('Use getMtShortSupplyResponseDescriptor instead')
-const GetMtShortSupplyResponse_ArrShortSupply$json = const {
+const GetMtShortSupplyResponse_ArrShortSupply$json = {
   '1': 'ArrShortSupply',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'result_flag',
       '3': 1,
       '4': 1,
@@ -87,7 +87,7 @@ const GetMtShortSupplyResponse_ArrShortSupply$json = const {
       '10': 'resultFlag',
       '17': true
     },
-    const {
+    {
       '1': 'short_supply',
       '3': 2,
       '4': 3,
@@ -96,17 +96,17 @@ const GetMtShortSupplyResponse_ArrShortSupply$json = const {
       '10': 'shortSupply'
     },
   ],
-  '3': const [GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json],
-  '8': const [
-    const {'1': '_result_flag'},
+  '3': [GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json],
+  '8': [
+    {'1': '_result_flag'},
   ],
 };
 
 @$core.Deprecated('Use getMtShortSupplyResponseDescriptor instead')
-const GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json = const {
+const GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json = {
   '1': 'ShortSupply',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'branch_code',
       '3': 1,
       '4': 1,
@@ -115,7 +115,7 @@ const GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json = const {
       '10': 'branchCode',
       '17': true
     },
-    const {
+    {
       '1': 'end_date',
       '3': 2,
       '4': 1,
@@ -124,27 +124,27 @@ const GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json = const {
       '10': 'endDate',
       '17': true
     },
-    const {
+    {
       '1': 'ins_date',
       '3': 3,
       '4': 1,
       '5': 9,
-      '8': const {'3': true},
+      '8': {'3': true},
       '9': 2,
       '10': 'insDate',
       '17': true,
     },
-    const {
+    {
       '1': 'ins_time',
       '3': 4,
       '4': 1,
       '5': 9,
-      '8': const {'3': true},
+      '8': {'3': true},
       '9': 3,
       '10': 'insTime',
       '17': true,
     },
-    const {
+    {
       '1': 'ins_user_id',
       '3': 5,
       '4': 1,
@@ -153,7 +153,7 @@ const GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json = const {
       '10': 'insUserId',
       '17': true
     },
-    const {
+    {
       '1': 'max_order_num',
       '3': 6,
       '4': 1,
@@ -162,7 +162,7 @@ const GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json = const {
       '10': 'maxOrderNum',
       '17': true
     },
-    const {
+    {
       '1': 'product_code',
       '3': 7,
       '4': 1,
@@ -171,7 +171,7 @@ const GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json = const {
       '10': 'productCode',
       '17': true
     },
-    const {
+    {
       '1': 'start_date',
       '3': 8,
       '4': 1,
@@ -180,27 +180,27 @@ const GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json = const {
       '10': 'startDate',
       '17': true
     },
-    const {
+    {
       '1': 'upd_date',
       '3': 9,
       '4': 1,
       '5': 9,
-      '8': const {'3': true},
+      '8': {'3': true},
       '9': 8,
       '10': 'updDate',
       '17': true,
     },
-    const {
+    {
       '1': 'upd_time',
       '3': 10,
       '4': 1,
       '5': 9,
-      '8': const {'3': true},
+      '8': {'3': true},
       '9': 9,
       '10': 'updTime',
       '17': true,
     },
-    const {
+    {
       '1': 'upd_user_id',
       '3': 11,
       '4': 1,
@@ -210,18 +210,18 @@ const GetMtShortSupplyResponse_ArrShortSupply_ShortSupply$json = const {
       '17': true
     },
   ],
-  '8': const [
-    const {'1': '_branch_code'},
-    const {'1': '_end_date'},
-    const {'1': '_ins_date'},
-    const {'1': '_ins_time'},
-    const {'1': '_ins_user_id'},
-    const {'1': '_max_order_num'},
-    const {'1': '_product_code'},
-    const {'1': '_start_date'},
-    const {'1': '_upd_date'},
-    const {'1': '_upd_time'},
-    const {'1': '_upd_user_id'},
+  '8': [
+    {'1': '_branch_code'},
+    {'1': '_end_date'},
+    {'1': '_ins_date'},
+    {'1': '_ins_time'},
+    {'1': '_ins_user_id'},
+    {'1': '_max_order_num'},
+    {'1': '_product_code'},
+    {'1': '_start_date'},
+    {'1': '_upd_date'},
+    {'1': '_upd_time'},
+    {'1': '_upd_user_id'},
   ],
 };
 
@@ -230,10 +230,10 @@ final $typed_data.Uint8List getMtShortSupplyResponseDescriptor =
     $convert.base64Decode(
         'ChhHZXRNdFNob3J0U3VwcGx5UmVzcG9uc2USSgoGcmVzdWx0GAEgAygLMjIuc2VsZWN0LnYxLkdldE10U2hvcnRTdXBwbHlSZXNwb25zZS5BcnJTaG9ydFN1cHBseVIGcmVzdWx0GvEFCg5BcnJTaG9ydFN1cHBseRIkCgtyZXN1bHRfZmxhZxgBIAEoBUgAUgpyZXN1bHRGbGFniAEBEmEKDHNob3J0X3N1cHBseRgCIAMoCzI+LnNlbGVjdC52MS5HZXRNdFNob3J0U3VwcGx5UmVzcG9uc2UuQXJyU2hvcnRTdXBwbHkuU2hvcnRTdXBwbHlSC3Nob3J0U3VwcGx5GsUECgtTaG9ydFN1cHBseRIkCgticmFuY2hfY29kZRgBIAEoBUgAUgpicmFuY2hDb2RliAEBEh4KCGVuZF9kYXRlGAIgASgJSAFSB2VuZERhdGWIAQESIgoIaW5zX2RhdGUYAyABKAlCAhgBSAJSB2luc0RhdGWIAQESIgoIaW5zX3RpbWUYBCABKAlCAhgBSANSB2luc1RpbWWIAQESIwoLaW5zX3VzZXJfaWQYBSABKAVIBFIJaW5zVXNlcklkiAEBEicKDW1heF9vcmRlcl9udW0YBiABKAVIBVILbWF4T3JkZXJOdW2IAQESJgoMcHJvZHVjdF9jb2RlGAcgASgJSAZSC3Byb2R1Y3RDb2RliAEBEiIKCnN0YXJ0X2RhdGUYCCABKAlIB1IJc3RhcnREYXRliAEBEiIKCHVwZF9kYXRlGAkgASgJQgIYAUgIUgd1cGREYXRliAEBEiIKCHVwZF90aW1lGAogASgJQgIYAUgJUgd1cGRUaW1liAEBEiMKC3VwZF91c2VyX2lkGAsgASgFSApSCXVwZFVzZXJJZIgBAUIOCgxfYnJhbmNoX2NvZGVCCwoJX2VuZF9kYXRlQgsKCV9pbnNfZGF0ZUILCglfaW5zX3RpbWVCDgoMX2luc191c2VyX2lkQhAKDl9tYXhfb3JkZXJfbnVtQg8KDV9wcm9kdWN0X2NvZGVCDQoLX3N0YXJ0X2RhdGVCCwoJX3VwZF9kYXRlQgsKCV91cGRfdGltZUIOCgxfdXBkX3VzZXJfaWRCDgoMX3Jlc3VsdF9mbGFn');
 @$core.Deprecated('Use getMtStoreOrderCntlRequestDescriptor instead')
-const GetMtStoreOrderCntlRequest$json = const {
+const GetMtStoreOrderCntlRequest$json = {
   '1': 'GetMtStoreOrderCntlRequest',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'store_products',
       '3': 1,
       '4': 3,
@@ -242,14 +242,14 @@ const GetMtStoreOrderCntlRequest$json = const {
       '10': 'storeProducts'
     },
   ],
-  '3': const [GetMtStoreOrderCntlRequest_StoreProduct$json],
+  '3': [GetMtStoreOrderCntlRequest_StoreProduct$json],
 };
 
 @$core.Deprecated('Use getMtStoreOrderCntlRequestDescriptor instead')
-const GetMtStoreOrderCntlRequest_StoreProduct$json = const {
+const GetMtStoreOrderCntlRequest_StoreProduct$json = {
   '1': 'StoreProduct',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'product_code',
       '3': 1,
       '4': 1,
@@ -258,7 +258,7 @@ const GetMtStoreOrderCntlRequest_StoreProduct$json = const {
       '10': 'productCode',
       '17': true
     },
-    const {
+    {
       '1': 'store_code',
       '3': 2,
       '4': 1,
@@ -268,9 +268,9 @@ const GetMtStoreOrderCntlRequest_StoreProduct$json = const {
       '17': true
     },
   ],
-  '8': const [
-    const {'1': '_product_code'},
-    const {'1': '_store_code'},
+  '8': [
+    {'1': '_product_code'},
+    {'1': '_store_code'},
   ],
 };
 
@@ -279,10 +279,10 @@ final $typed_data.Uint8List getMtStoreOrderCntlRequestDescriptor =
     $convert.base64Decode(
         'ChpHZXRNdFN0b3JlT3JkZXJDbnRsUmVxdWVzdBJZCg5zdG9yZV9wcm9kdWN0cxgBIAMoCzIyLnNlbGVjdC52MS5HZXRNdFN0b3JlT3JkZXJDbnRsUmVxdWVzdC5TdG9yZVByb2R1Y3RSDXN0b3JlUHJvZHVjdHMaegoMU3RvcmVQcm9kdWN0EiYKDHByb2R1Y3RfY29kZRgBIAEoCUgAUgtwcm9kdWN0Q29kZYgBARIiCgpzdG9yZV9jb2RlGAIgASgJSAFSCXN0b3JlQ29kZYgBAUIPCg1fcHJvZHVjdF9jb2RlQg0KC19zdG9yZV9jb2Rl');
 @$core.Deprecated('Use getMtStoreOrderCntlResponseDescriptor instead')
-const GetMtStoreOrderCntlResponse$json = const {
+const GetMtStoreOrderCntlResponse$json = {
   '1': 'GetMtStoreOrderCntlResponse',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'result',
       '3': 1,
       '4': 3,
@@ -291,14 +291,14 @@ const GetMtStoreOrderCntlResponse$json = const {
       '10': 'result'
     },
   ],
-  '3': const [GetMtStoreOrderCntlResponse_MtStoreOrder$json],
+  '3': [GetMtStoreOrderCntlResponse_MtStoreOrder$json],
 };
 
 @$core.Deprecated('Use getMtStoreOrderCntlResponseDescriptor instead')
-const GetMtStoreOrderCntlResponse_MtStoreOrder$json = const {
+const GetMtStoreOrderCntlResponse_MtStoreOrder$json = {
   '1': 'MtStoreOrder',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'item_id',
       '3': 1,
       '4': 1,
@@ -307,7 +307,7 @@ const GetMtStoreOrderCntlResponse_MtStoreOrder$json = const {
       '10': 'itemId',
       '17': true
     },
-    const {
+    {
       '1': 'store_id',
       '3': 2,
       '4': 1,
@@ -316,7 +316,7 @@ const GetMtStoreOrderCntlResponse_MtStoreOrder$json = const {
       '10': 'storeId',
       '17': true
     },
-    const {
+    {
       '1': 'flag_chg_rcmd_odr',
       '3': 3,
       '4': 1,
@@ -325,7 +325,7 @@ const GetMtStoreOrderCntlResponse_MtStoreOrder$json = const {
       '10': 'flagChgRcmdOdr',
       '17': true
     },
-    const {
+    {
       '1': 'flag_chg_rcmd_odr_message',
       '3': 4,
       '4': 1,
@@ -334,7 +334,7 @@ const GetMtStoreOrderCntlResponse_MtStoreOrder$json = const {
       '10': 'flagChgRcmdOdrMessage',
       '17': true
     },
-    const {
+    {
       '1': 'flag_chg_at_odr',
       '3': 5,
       '4': 1,
@@ -343,7 +343,7 @@ const GetMtStoreOrderCntlResponse_MtStoreOrder$json = const {
       '10': 'flagChgAtOdr',
       '17': true
     },
-    const {
+    {
       '1': 'flag_chg_at_odr_message',
       '3': 6,
       '4': 1,
@@ -352,7 +352,7 @@ const GetMtStoreOrderCntlResponse_MtStoreOrder$json = const {
       '10': 'flagChgAtOdrMessage',
       '17': true
     },
-    const {
+    {
       '1': 'flag_input_adjt_qy',
       '3': 7,
       '4': 1,
@@ -361,7 +361,7 @@ const GetMtStoreOrderCntlResponse_MtStoreOrder$json = const {
       '10': 'flagInputAdjtQy',
       '17': true
     },
-    const {
+    {
       '1': 'flag_input_adjt_qy_message',
       '3': 8,
       '4': 1,
@@ -371,15 +371,15 @@ const GetMtStoreOrderCntlResponse_MtStoreOrder$json = const {
       '17': true
     },
   ],
-  '8': const [
-    const {'1': '_item_id'},
-    const {'1': '_store_id'},
-    const {'1': '_flag_chg_rcmd_odr'},
-    const {'1': '_flag_chg_rcmd_odr_message'},
-    const {'1': '_flag_chg_at_odr'},
-    const {'1': '_flag_chg_at_odr_message'},
-    const {'1': '_flag_input_adjt_qy'},
-    const {'1': '_flag_input_adjt_qy_message'},
+  '8': [
+    {'1': '_item_id'},
+    {'1': '_store_id'},
+    {'1': '_flag_chg_rcmd_odr'},
+    {'1': '_flag_chg_rcmd_odr_message'},
+    {'1': '_flag_chg_at_odr'},
+    {'1': '_flag_chg_at_odr_message'},
+    {'1': '_flag_input_adjt_qy'},
+    {'1': '_flag_input_adjt_qy_message'},
   ],
 };
 

@@ -19,7 +19,7 @@ class GetPrintCenterRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetPrintCenterRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'print.v1'),
       createEmptyInstance: create)
@@ -125,7 +125,7 @@ class GetPrintCenterResponse_Row0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetPrintCenterResponse.Row0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'print.v1'),
       createEmptyInstance: create)
@@ -217,7 +217,7 @@ class GetPrintCenterResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetPrintCenterResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'print.v1'),
       createEmptyInstance: create)

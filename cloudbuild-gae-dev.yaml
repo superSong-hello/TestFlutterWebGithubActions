@@ -1,0 +1,31 @@
+steps:
+  # Install Melos
+  - name: melosjs/melos
+    entrypoint: melos
+    args: [ "install" ]
+  # Install Flutter SDK && Build Flutter Web app
+  - name: 'cirrusci/flutter'
+    entrypoint: /bin/sh
+    args: ['-c', 'melos build:flutterWeb:dev']
+  # Upload to GAE
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+    - '-c'
+    - |
+      cd packages/daifuku/
+      gcloud app deploy app.yaml
+
+
+#  # Install Flutter SDK && Build Flutter Web app
+#  - name: 'cirrusci/flutter'
+#    entrypoint: /bin/sh
+#    args: ['-c', 'cd packages/daifuku/ && flutter clean && flutter pub get && flutter build web --dart-define=MODE=debug --base-href="/" --web-renderer html']
+#  # Upload to GAE
+#  - name: 'gcr.io/cloud-builders/gcloud'
+#    entrypoint: 'bash'
+#    args:
+#      - '-c'
+#      - |
+#        cd packages/daifuku/
+#        gcloud app deploy app.yaml

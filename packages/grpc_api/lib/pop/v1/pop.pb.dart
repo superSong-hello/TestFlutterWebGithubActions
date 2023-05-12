@@ -16,7 +16,7 @@ class GetLocationInfoRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetLocationInfoRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -118,7 +118,7 @@ class GetLocationInfoResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetLocationInfoResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -234,7 +234,7 @@ class GetLocationInfoResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetLocationInfoResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -320,7 +320,7 @@ class GetLocationInfoResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetLocationInfoResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -447,7 +447,7 @@ class UpdatePrintInfoRequest_NormalPop extends $pb.GeneratedMessage {
           ? ''
           : 'UpdatePrintInfoRequest.NormalPop',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -875,7 +875,7 @@ class UpdatePrintInfoRequest_BeveragePop extends $pb.GeneratedMessage {
           ? ''
           : 'UpdatePrintInfoRequest.BeveragePop',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -1224,7 +1224,7 @@ class UpdatePrintInfoRequest extends $pb.GeneratedMessage {
           ? ''
           : 'UpdatePrintInfoRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -1344,7 +1344,7 @@ class UpdatePrintInfoResponse extends $pb.GeneratedMessage {
           ? ''
           : 'UpdatePrintInfoResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -1434,7 +1434,7 @@ class GetPreseInfoRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetPreseInfoRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -1501,7 +1501,7 @@ class GetPreseInfoResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetPreseInfoResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -1617,7 +1617,7 @@ class GetPreseInfoResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetPreseInfoResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -1703,7 +1703,7 @@ class GetPreseInfoResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetPreseInfoResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -1816,7 +1816,7 @@ class GetFreezingInfoRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetFreezingInfoRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -1885,7 +1885,7 @@ class GetFreezingInfoResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetFreezingInfoResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -2000,7 +2000,7 @@ class GetFreezingInfoResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetFreezingInfoResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -2086,7 +2086,7 @@ class GetFreezingInfoResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetFreezingInfoResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -2200,7 +2200,7 @@ class GetDrinkInfoRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetDrinkInfoRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -2309,7 +2309,7 @@ class GetDrinkInfoResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetDrinkInfoResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -2552,7 +2552,7 @@ class GetDrinkInfoResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetDrinkInfoResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -2638,7 +2638,7 @@ class GetDrinkInfoResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetDrinkInfoResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -2751,7 +2751,7 @@ class PrintWebPopProdsRequest_NormalPop extends $pb.GeneratedMessage {
           ? ''
           : 'PrintWebPopProdsRequest.NormalPop',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -3047,7 +3047,7 @@ class PrintWebPopProdsRequest_BeveragePop extends $pb.GeneratedMessage {
           ? ''
           : 'PrintWebPopProdsRequest.BeveragePop',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -3354,7 +3354,7 @@ class PrintWebPopProdsRequest extends $pb.GeneratedMessage {
           ? ''
           : 'PrintWebPopProdsRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -3474,7 +3474,7 @@ class PrintWebPopProdsResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'PrintWebPopProdsResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -3590,7 +3590,7 @@ class PrintWebPopProdsResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'PrintWebPopProdsResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -3677,7 +3677,7 @@ class PrintWebPopProdsResponse extends $pb.GeneratedMessage {
           ? ''
           : 'PrintWebPopProdsResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -3791,7 +3791,7 @@ class GetProdInfoRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdInfoRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -3900,7 +3900,7 @@ class GetProdInfoResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdInfoResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -4250,7 +4250,7 @@ class GetProdInfoResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdInfoResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -4335,7 +4335,7 @@ class GetProdInfoResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdInfoResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -4447,7 +4447,7 @@ class GetPaperAndPressRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -4516,7 +4516,7 @@ class GetPaperAndPressResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -4716,7 +4716,7 @@ class GetPaperAndPressResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -4803,7 +4803,7 @@ class GetPaperAndPressResponse_Table1_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressResponse.Table1.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -4919,7 +4919,7 @@ class GetPaperAndPressResponse_Table1 extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressResponse.Table1',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -5006,7 +5006,7 @@ class GetPaperAndPressResponse_Table2_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressResponse.Table2.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -5206,7 +5206,7 @@ class GetPaperAndPressResponse_Table2 extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressResponse.Table2',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -5293,7 +5293,7 @@ class GetPaperAndPressResponse_Table3_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressResponse.Table3.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -5409,7 +5409,7 @@ class GetPaperAndPressResponse_Table3 extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressResponse.Table3',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -5496,7 +5496,7 @@ class GetPaperAndPressResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -5682,7 +5682,7 @@ class GetPaperAndPressNewRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressNewRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -5752,7 +5752,7 @@ class GetPaperAndPressNewResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressNewResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -5952,7 +5952,7 @@ class GetPaperAndPressNewResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressNewResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6039,7 +6039,7 @@ class GetPaperAndPressNewResponse_Table1_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressNewResponse.Table1.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6155,7 +6155,7 @@ class GetPaperAndPressNewResponse_Table1 extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressNewResponse.Table1',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6242,7 +6242,7 @@ class GetPaperAndPressNewResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetPaperAndPressNewResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6382,7 +6382,7 @@ class GetProdCheckRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdCheckRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6470,7 +6470,7 @@ class GetProdCheckResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdCheckResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6559,7 +6559,7 @@ class GetProductPriceRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetProductPriceRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6649,7 +6649,7 @@ class GetProductPriceResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetProductPriceResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6739,7 +6739,7 @@ class GetMaxPrintNumRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetMaxPrintNumRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6808,7 +6808,7 @@ class GetMaxPrintNumResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetMaxPrintNumResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6902,7 +6902,7 @@ class GetMaxPrintNumResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetMaxPrintNumResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)
@@ -6988,7 +6988,7 @@ class GetMaxPrintNumResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetMaxPrintNumResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'pop.v1'),
       createEmptyInstance: create)

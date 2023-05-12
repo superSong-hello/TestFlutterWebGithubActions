@@ -13,19 +13,19 @@ class GetProdInfoRequest_OrderLogFlag extends $pb.ProtobufEnum {
   static const GetProdInfoRequest_OrderLogFlag ORDER_LOG_FLAG_UNSPECIFIED =
       GetProdInfoRequest_OrderLogFlag._(
           0,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'ORDER_LOG_FLAG_UNSPECIFIED');
   static const GetProdInfoRequest_OrderLogFlag ORDER_LOG_FLAG_NORMAL =
       GetProdInfoRequest_OrderLogFlag._(
           1,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'ORDER_LOG_FLAG_NORMAL');
   static const GetProdInfoRequest_OrderLogFlag ORDER_LOG_FLAG_DAILY_DELIVERY =
       GetProdInfoRequest_OrderLogFlag._(
           2,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'ORDER_LOG_FLAG_DAILY_DELIVERY');
 
@@ -49,19 +49,19 @@ class SetOrderMethodRequest_AutoOrder extends $pb.ProtobufEnum {
   static const SetOrderMethodRequest_AutoOrder AUTO_ORDER_UNSPECIFIED =
       SetOrderMethodRequest_AutoOrder._(
           0,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'AUTO_ORDER_UNSPECIFIED');
   static const SetOrderMethodRequest_AutoOrder AUTO_ORDER_DISABLE =
       SetOrderMethodRequest_AutoOrder._(
           1,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'AUTO_ORDER_DISABLE');
   static const SetOrderMethodRequest_AutoOrder AUTO_ORDER_ENABLE =
       SetOrderMethodRequest_AutoOrder._(
           3,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'AUTO_ORDER_ENABLE');
 
@@ -85,43 +85,43 @@ class SetOrderNumRequest_LeadTime extends $pb.ProtobufEnum {
   static const SetOrderNumRequest_LeadTime LEAD_TIME_UNSPECIFIED =
       SetOrderNumRequest_LeadTime._(
           0,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'LEAD_TIME_UNSPECIFIED');
   static const SetOrderNumRequest_LeadTime LEAD_TIME_1DAYS =
       SetOrderNumRequest_LeadTime._(
           1,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'LEAD_TIME_1DAYS');
   static const SetOrderNumRequest_LeadTime LEAD_TIME_2DAYS =
       SetOrderNumRequest_LeadTime._(
           2,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'LEAD_TIME_2DAYS');
   static const SetOrderNumRequest_LeadTime LEAD_TIME_3DAYS =
       SetOrderNumRequest_LeadTime._(
           3,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'LEAD_TIME_3DAYS');
   static const SetOrderNumRequest_LeadTime LEAD_TIME_4DAYS =
       SetOrderNumRequest_LeadTime._(
           4,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'LEAD_TIME_4DAYS');
   static const SetOrderNumRequest_LeadTime LEAD_TIME_5DAYS =
       SetOrderNumRequest_LeadTime._(
           5,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'LEAD_TIME_5DAYS');
   static const SetOrderNumRequest_LeadTime LEAD_TIME_6DAYS =
       SetOrderNumRequest_LeadTime._(
           6,
-          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          $core.bool.fromEnvironment('protobuf.omit_enum_names')
               ? ''
               : 'LEAD_TIME_6DAYS');
 

@@ -10,13 +10,13 @@ import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use getInfoRequestDescriptor instead')
-const GetInfoRequest$json = const {
+const GetInfoRequest$json = {
   '1': 'GetInfoRequest',
-  '2': const [
-    const {'1': 'ip', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'ip', '17': true},
+  '2': [
+    {'1': 'ip', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'ip', '17': true},
   ],
-  '8': const [
-    const {'1': '_ip'},
+  '8': [
+    {'1': '_ip'},
   ],
 };
 
@@ -24,19 +24,11 @@ const GetInfoRequest$json = const {
 final $typed_data.Uint8List getInfoRequestDescriptor = $convert.base64Decode(
     'Cg5HZXRJbmZvUmVxdWVzdBITCgJpcBgBIAEoCUgAUgJpcIgBAUIFCgNfaXA=');
 @$core.Deprecated('Use getInfoResponseDescriptor instead')
-const GetInfoResponse$json = const {
+const GetInfoResponse$json = {
   '1': 'GetInfoResponse',
-  '2': const [
-    const {
-      '1': 'code',
-      '3': 1,
-      '4': 1,
-      '5': 9,
-      '9': 0,
-      '10': 'code',
-      '17': true
-    },
-    const {
+  '2': [
+    {'1': 'code', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'code', '17': true},
+    {
       '1': 'message',
       '3': 2,
       '4': 1,
@@ -45,7 +37,7 @@ const GetInfoResponse$json = const {
       '10': 'message',
       '17': true
     },
-    const {
+    {
       '1': 'table0',
       '3': 3,
       '4': 1,
@@ -54,27 +46,19 @@ const GetInfoResponse$json = const {
       '10': 'table0'
     },
   ],
-  '3': const [GetInfoResponse_Table0$json],
-  '8': const [
-    const {'1': '_code'},
-    const {'1': '_message'},
+  '3': [GetInfoResponse_Table0$json],
+  '8': [
+    {'1': '_code'},
+    {'1': '_message'},
   ],
 };
 
 @$core.Deprecated('Use getInfoResponseDescriptor instead')
-const GetInfoResponse_Table0$json = const {
+const GetInfoResponse_Table0$json = {
   '1': 'Table0',
-  '2': const [
-    const {
-      '1': 'count',
-      '3': 1,
-      '4': 1,
-      '5': 5,
-      '9': 0,
-      '10': 'count',
-      '17': true
-    },
-    const {
+  '2': [
+    {'1': 'count', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'count', '17': true},
+    {
       '1': 'rows',
       '3': 2,
       '4': 3,
@@ -83,26 +67,18 @@ const GetInfoResponse_Table0$json = const {
       '10': 'rows'
     },
   ],
-  '3': const [GetInfoResponse_Table0_Row$json],
-  '8': const [
-    const {'1': '_count'},
+  '3': [GetInfoResponse_Table0_Row$json],
+  '8': [
+    {'1': '_count'},
   ],
 };
 
 @$core.Deprecated('Use getInfoResponseDescriptor instead')
-const GetInfoResponse_Table0_Row$json = const {
+const GetInfoResponse_Table0_Row$json = {
   '1': 'Row',
-  '2': const [
-    const {
-      '1': 'row_no',
-      '3': 1,
-      '4': 1,
-      '5': 5,
-      '9': 0,
-      '10': 'rowNo',
-      '17': true
-    },
-    const {
+  '2': [
+    {'1': 'row_no', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'rowNo', '17': true},
+    {
       '1': 'server_ip',
       '3': 2,
       '4': 1,
@@ -111,7 +87,7 @@ const GetInfoResponse_Table0_Row$json = const {
       '10': 'serverIp',
       '17': true
     },
-    const {
+    {
       '1': 'server_ip_cal',
       '3': 3,
       '4': 1,
@@ -120,7 +96,7 @@ const GetInfoResponse_Table0_Row$json = const {
       '10': 'serverIpCal',
       '17': true
     },
-    const {
+    {
       '1': 'store_code',
       '3': 4,
       '4': 1,
@@ -129,7 +105,7 @@ const GetInfoResponse_Table0_Row$json = const {
       '10': 'storeCode',
       '17': true
     },
-    const {
+    {
       '1': 'store_name',
       '3': 5,
       '4': 1,
@@ -138,23 +114,15 @@ const GetInfoResponse_Table0_Row$json = const {
       '10': 'storeName',
       '17': true
     },
-    const {
-      '1': 'sip_ip',
-      '3': 6,
-      '4': 1,
-      '5': 9,
-      '9': 5,
-      '10': 'sipIp',
-      '17': true
-    },
+    {'1': 'sip_ip', '3': 6, '4': 1, '5': 9, '9': 5, '10': 'sipIp', '17': true},
   ],
-  '8': const [
-    const {'1': '_row_no'},
-    const {'1': '_server_ip'},
-    const {'1': '_server_ip_cal'},
-    const {'1': '_store_code'},
-    const {'1': '_store_name'},
-    const {'1': '_sip_ip'},
+  '8': [
+    {'1': '_row_no'},
+    {'1': '_server_ip'},
+    {'1': '_server_ip_cal'},
+    {'1': '_store_code'},
+    {'1': '_store_name'},
+    {'1': '_sip_ip'},
   ],
 };
 

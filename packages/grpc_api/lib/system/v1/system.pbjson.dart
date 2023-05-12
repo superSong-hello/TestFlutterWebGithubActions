@@ -10,10 +10,10 @@ import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use getTmsts0085RequestDescriptor instead')
-const GetTmsts0085Request$json = const {
+const GetTmsts0085Request$json = {
   '1': 'GetTmsts0085Request',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'product_code',
       '3': 1,
       '4': 1,
@@ -22,7 +22,7 @@ const GetTmsts0085Request$json = const {
       '10': 'productCode',
       '17': true
     },
-    const {
+    {
       '1': 'store_code',
       '3': 2,
       '4': 1,
@@ -31,7 +31,7 @@ const GetTmsts0085Request$json = const {
       '10': 'storeCode',
       '17': true
     },
-    const {
+    {
       '1': 'date',
       '3': 3,
       '4': 1,
@@ -42,21 +42,21 @@ const GetTmsts0085Request$json = const {
       '17': true
     },
   ],
-  '3': const [GetTmsts0085Request_Date$json],
-  '8': const [
-    const {'1': '_product_code'},
-    const {'1': '_store_code'},
-    const {'1': '_date'},
+  '3': [GetTmsts0085Request_Date$json],
+  '8': [
+    {'1': '_product_code'},
+    {'1': '_store_code'},
+    {'1': '_date'},
   ],
 };
 
 @$core.Deprecated('Use getTmsts0085RequestDescriptor instead')
-const GetTmsts0085Request_Date$json = const {
+const GetTmsts0085Request_Date$json = {
   '1': 'Date',
-  '2': const [
-    const {'1': 'year', '3': 1, '4': 1, '5': 5, '10': 'year'},
-    const {'1': 'month', '3': 2, '4': 1, '5': 5, '10': 'month'},
-    const {'1': 'day', '3': 3, '4': 1, '5': 5, '10': 'day'},
+  '2': [
+    {'1': 'year', '3': 1, '4': 1, '5': 5, '10': 'year'},
+    {'1': 'month', '3': 2, '4': 1, '5': 5, '10': 'month'},
+    {'1': 'day', '3': 3, '4': 1, '5': 5, '10': 'day'},
   ],
 };
 
@@ -64,10 +64,10 @@ const GetTmsts0085Request_Date$json = const {
 final $typed_data.Uint8List getTmsts0085RequestDescriptor = $convert.base64Decode(
     'ChNHZXRUbXN0czAwODVSZXF1ZXN0EiYKDHByb2R1Y3RfY29kZRgBIAEoCUgAUgtwcm9kdWN0Q29kZYgBARIiCgpzdG9yZV9jb2RlGAIgASgJSAFSCXN0b3JlQ29kZYgBARI8CgRkYXRlGAMgASgLMiMuc3lzdGVtLnYxLkdldFRtc3RzMDA4NVJlcXVlc3QuRGF0ZUgCUgRkYXRliAEBGkIKBERhdGUSEgoEeWVhchgBIAEoBVIEeWVhchIUCgVtb250aBgCIAEoBVIFbW9udGgSEAoDZGF5GAMgASgFUgNkYXlCDwoNX3Byb2R1Y3RfY29kZUINCgtfc3RvcmVfY29kZUIHCgVfZGF0ZQ==');
 @$core.Deprecated('Use getTmsts0085ResponseDescriptor instead')
-const GetTmsts0085Response$json = const {
+const GetTmsts0085Response$json = {
   '1': 'GetTmsts0085Response',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'rsp_head',
       '3': 1,
       '4': 1,
@@ -75,7 +75,7 @@ const GetTmsts0085Response$json = const {
       '6': '.system.v1.GetTmsts0085Response.RspHead',
       '10': 'rspHead'
     },
-    const {
+    {
       '1': 'rsp_page',
       '3': 2,
       '4': 1,
@@ -83,7 +83,7 @@ const GetTmsts0085Response$json = const {
       '6': '.system.v1.GetTmsts0085Response.RspPage',
       '10': 'rspPage'
     },
-    const {
+    {
       '1': 'rec',
       '3': 3,
       '4': 1,
@@ -92,7 +92,7 @@ const GetTmsts0085Response$json = const {
       '10': 'rec'
     },
   ],
-  '3': const [
+  '3': [
     GetTmsts0085Response_RspHead$json,
     GetTmsts0085Response_RspPage$json,
     GetTmsts0085Response_Rec$json
@@ -100,19 +100,11 @@ const GetTmsts0085Response$json = const {
 };
 
 @$core.Deprecated('Use getTmsts0085ResponseDescriptor instead')
-const GetTmsts0085Response_RspHead$json = const {
+const GetTmsts0085Response_RspHead$json = {
   '1': 'RspHead',
-  '2': const [
-    const {
-      '1': 'status',
-      '3': 1,
-      '4': 1,
-      '5': 5,
-      '9': 0,
-      '10': 'status',
-      '17': true
-    },
-    const {
+  '2': [
+    {'1': 'status', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'status', '17': true},
+    {
       '1': 'message',
       '3': 2,
       '4': 1,
@@ -121,7 +113,7 @@ const GetTmsts0085Response_RspHead$json = const {
       '10': 'message',
       '17': true
     },
-    const {
+    {
       '1': 'args',
       '3': 3,
       '4': 3,
@@ -129,7 +121,7 @@ const GetTmsts0085Response_RspHead$json = const {
       '6': '.system.v1.GetTmsts0085Response.RspHead.Args',
       '10': 'args'
     },
-    const {
+    {
       '1': 'message_str',
       '3': 4,
       '4': 1,
@@ -138,7 +130,7 @@ const GetTmsts0085Response_RspHead$json = const {
       '10': 'messageStr',
       '17': true
     },
-    const {
+    {
       '1': 'ex_message',
       '3': 5,
       '4': 1,
@@ -147,7 +139,7 @@ const GetTmsts0085Response_RspHead$json = const {
       '10': 'exMessage',
       '17': true
     },
-    const {
+    {
       '1': 'field_messages',
       '3': 6,
       '4': 3,
@@ -155,7 +147,7 @@ const GetTmsts0085Response_RspHead$json = const {
       '6': '.system.v1.GetTmsts0085Response.RspHead.FieldMessages',
       '10': 'fieldMessages'
     },
-    const {
+    {
       '1': 'ope_iymd',
       '3': 7,
       '4': 1,
@@ -164,52 +156,36 @@ const GetTmsts0085Response_RspHead$json = const {
       '10': 'opeIymd',
       '17': true
     },
-    const {'1': 'uri', '3': 8, '4': 1, '5': 9, '9': 5, '10': 'uri', '17': true},
-    const {
-      '1': 'recno',
-      '3': 9,
-      '4': 1,
-      '5': 9,
-      '9': 6,
-      '10': 'recno',
-      '17': true
-    },
-    const {
-      '1': 'state',
-      '3': 10,
-      '4': 1,
-      '5': 5,
-      '9': 7,
-      '10': 'state',
-      '17': true
-    },
+    {'1': 'uri', '3': 8, '4': 1, '5': 9, '9': 5, '10': 'uri', '17': true},
+    {'1': 'recno', '3': 9, '4': 1, '5': 9, '9': 6, '10': 'recno', '17': true},
+    {'1': 'state', '3': 10, '4': 1, '5': 5, '9': 7, '10': 'state', '17': true},
   ],
-  '3': const [
+  '3': [
     GetTmsts0085Response_RspHead_Args$json,
     GetTmsts0085Response_RspHead_FieldMessages$json
   ],
-  '8': const [
-    const {'1': '_status'},
-    const {'1': '_message'},
-    const {'1': '_message_str'},
-    const {'1': '_ex_message'},
-    const {'1': '_ope_iymd'},
-    const {'1': '_uri'},
-    const {'1': '_recno'},
-    const {'1': '_state'},
+  '8': [
+    {'1': '_status'},
+    {'1': '_message'},
+    {'1': '_message_str'},
+    {'1': '_ex_message'},
+    {'1': '_ope_iymd'},
+    {'1': '_uri'},
+    {'1': '_recno'},
+    {'1': '_state'},
   ],
 };
 
 @$core.Deprecated('Use getTmsts0085ResponseDescriptor instead')
-const GetTmsts0085Response_RspHead_Args$json = const {
+const GetTmsts0085Response_RspHead_Args$json = {
   '1': 'Args',
 };
 
 @$core.Deprecated('Use getTmsts0085ResponseDescriptor instead')
-const GetTmsts0085Response_RspHead_FieldMessages$json = const {
+const GetTmsts0085Response_RspHead_FieldMessages$json = {
   '1': 'FieldMessages',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'struct_name',
       '3': 1,
       '4': 1,
@@ -218,7 +194,7 @@ const GetTmsts0085Response_RspHead_FieldMessages$json = const {
       '10': 'structName',
       '17': true
     },
-    const {
+    {
       '1': 'field_name',
       '3': 2,
       '4': 1,
@@ -227,16 +203,8 @@ const GetTmsts0085Response_RspHead_FieldMessages$json = const {
       '10': 'fieldName',
       '17': true
     },
-    const {
-      '1': 'lineno',
-      '3': 3,
-      '4': 1,
-      '5': 9,
-      '9': 2,
-      '10': 'lineno',
-      '17': true
-    },
-    const {
+    {'1': 'lineno', '3': 3, '4': 1, '5': 9, '9': 2, '10': 'lineno', '17': true},
+    {
       '1': 'tableno',
       '3': 4,
       '4': 1,
@@ -245,7 +213,7 @@ const GetTmsts0085Response_RspHead_FieldMessages$json = const {
       '10': 'tableno',
       '17': true
     },
-    const {
+    {
       '1': 'message',
       '3': 5,
       '4': 1,
@@ -254,7 +222,7 @@ const GetTmsts0085Response_RspHead_FieldMessages$json = const {
       '10': 'message',
       '17': true
     },
-    const {
+    {
       '1': 'args',
       '3': 6,
       '4': 3,
@@ -262,7 +230,7 @@ const GetTmsts0085Response_RspHead_FieldMessages$json = const {
       '6': '.system.v1.GetTmsts0085Response.RspHead.Args',
       '10': 'args'
     },
-    const {
+    {
       '1': 'message_str',
       '3': 7,
       '4': 1,
@@ -272,21 +240,21 @@ const GetTmsts0085Response_RspHead_FieldMessages$json = const {
       '17': true
     },
   ],
-  '8': const [
-    const {'1': '_struct_name'},
-    const {'1': '_field_name'},
-    const {'1': '_lineno'},
-    const {'1': '_tableno'},
-    const {'1': '_message'},
-    const {'1': '_message_str'},
+  '8': [
+    {'1': '_struct_name'},
+    {'1': '_field_name'},
+    {'1': '_lineno'},
+    {'1': '_tableno'},
+    {'1': '_message'},
+    {'1': '_message_str'},
   ],
 };
 
 @$core.Deprecated('Use getTmsts0085ResponseDescriptor instead')
-const GetTmsts0085Response_RspPage$json = const {
+const GetTmsts0085Response_RspPage$json = {
   '1': 'RspPage',
-  '2': const [
-    const {
+  '2': [
+    {
       '1': 'curr_record',
       '3': 1,
       '4': 1,
@@ -295,7 +263,7 @@ const GetTmsts0085Response_RspPage$json = const {
       '10': 'currRecord',
       '17': true
     },
-    const {
+    {
       '1': 'total_record',
       '3': 2,
       '4': 1,
@@ -304,7 +272,7 @@ const GetTmsts0085Response_RspPage$json = const {
       '10': 'totalRecord',
       '17': true
     },
-    const {
+    {
       '1': 'page_record',
       '3': 3,
       '4': 1,
@@ -313,7 +281,7 @@ const GetTmsts0085Response_RspPage$json = const {
       '10': 'pageRecord',
       '17': true
     },
-    const {
+    {
       '1': 'page_size',
       '3': 4,
       '4': 1,
@@ -322,7 +290,7 @@ const GetTmsts0085Response_RspPage$json = const {
       '10': 'pageSize',
       '17': true
     },
-    const {
+    {
       '1': 'page_num',
       '3': 5,
       '4': 1,
@@ -332,21 +300,21 @@ const GetTmsts0085Response_RspPage$json = const {
       '17': true
     },
   ],
-  '8': const [
-    const {'1': '_curr_record'},
-    const {'1': '_total_record'},
-    const {'1': '_page_record'},
-    const {'1': '_page_size'},
-    const {'1': '_page_num'},
+  '8': [
+    {'1': '_curr_record'},
+    {'1': '_total_record'},
+    {'1': '_page_record'},
+    {'1': '_page_size'},
+    {'1': '_page_num'},
   ],
 };
 
 @$core.Deprecated('Use getTmsts0085ResponseDescriptor instead')
-const GetTmsts0085Response_Rec$json = const {
+const GetTmsts0085Response_Rec$json = {
   '1': 'Rec',
-  '2': const [
-    const {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true},
-    const {
+  '2': [
+    {'1': 'id', '3': 1, '4': 1, '5': 5, '9': 0, '10': 'id', '17': true},
+    {
       '1': 'item_id',
       '3': 2,
       '4': 1,
@@ -355,7 +323,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'itemId',
       '17': true
     },
-    const {
+    {
       '1': 'item_code',
       '3': 3,
       '4': 1,
@@ -364,7 +332,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'itemCode',
       '17': true
     },
-    const {
+    {
       '1': 'item_name',
       '3': 4,
       '4': 1,
@@ -373,7 +341,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'itemName',
       '17': true
     },
-    const {
+    {
       '1': 'unit_type_id',
       '3': 5,
       '4': 1,
@@ -382,7 +350,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'unitTypeId',
       '17': true
     },
-    const {
+    {
       '1': 'inv_corr_type_id',
       '3': 6,
       '4': 1,
@@ -391,7 +359,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'invCorrTypeId',
       '17': true
     },
-    const {
+    {
       '1': 'real_qy',
       '3': 7,
       '4': 1,
@@ -400,7 +368,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'realQy',
       '17': true
     },
-    const {
+    {
       '1': 'logical_qy',
       '3': 8,
       '4': 1,
@@ -409,7 +377,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'logicalQy',
       '17': true
     },
-    const {
+    {
       '1': 'dlvplan_qy',
       '3': 9,
       '4': 1,
@@ -418,7 +386,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'dlvplanQy',
       '17': true
     },
-    const {
+    {
       '1': 'case_unit',
       '3': 10,
       '4': 1,
@@ -427,7 +395,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'caseUnit',
       '17': true
     },
-    const {
+    {
       '1': 'bowl_unit',
       '3': 11,
       '4': 1,
@@ -436,7 +404,7 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'bowlUnit',
       '17': true
     },
-    const {
+    {
       '1': 'upd_type_id',
       '3': 12,
       '4': 1,
@@ -445,40 +413,24 @@ const GetTmsts0085Response_Rec$json = const {
       '10': 'updTypeId',
       '17': true
     },
-    const {
-      '1': 'recno',
-      '3': 13,
-      '4': 1,
-      '5': 9,
-      '9': 12,
-      '10': 'recno',
-      '17': true
-    },
-    const {
-      '1': 'state',
-      '3': 14,
-      '4': 1,
-      '5': 5,
-      '9': 13,
-      '10': 'state',
-      '17': true
-    },
+    {'1': 'recno', '3': 13, '4': 1, '5': 9, '9': 12, '10': 'recno', '17': true},
+    {'1': 'state', '3': 14, '4': 1, '5': 5, '9': 13, '10': 'state', '17': true},
   ],
-  '8': const [
-    const {'1': '_id'},
-    const {'1': '_item_id'},
-    const {'1': '_item_code'},
-    const {'1': '_item_name'},
-    const {'1': '_unit_type_id'},
-    const {'1': '_inv_corr_type_id'},
-    const {'1': '_real_qy'},
-    const {'1': '_logical_qy'},
-    const {'1': '_dlvplan_qy'},
-    const {'1': '_case_unit'},
-    const {'1': '_bowl_unit'},
-    const {'1': '_upd_type_id'},
-    const {'1': '_recno'},
-    const {'1': '_state'},
+  '8': [
+    {'1': '_id'},
+    {'1': '_item_id'},
+    {'1': '_item_code'},
+    {'1': '_item_name'},
+    {'1': '_unit_type_id'},
+    {'1': '_inv_corr_type_id'},
+    {'1': '_real_qy'},
+    {'1': '_logical_qy'},
+    {'1': '_dlvplan_qy'},
+    {'1': '_case_unit'},
+    {'1': '_bowl_unit'},
+    {'1': '_upd_type_id'},
+    {'1': '_recno'},
+    {'1': '_state'},
   ],
 };
 

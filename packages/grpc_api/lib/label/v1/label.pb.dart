@@ -15,7 +15,7 @@ class GetPrintResultRequest_Data extends $pb.GeneratedMessage {
           ? ''
           : 'GetPrintResultRequest.Data',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -170,7 +170,7 @@ class GetPrintResultRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetPrintResultRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -274,7 +274,7 @@ class GetPrintResultResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetPrintResultResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -389,7 +389,7 @@ class GetPrintResultResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetPrintResultResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -475,7 +475,7 @@ class GetPrintResultResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetPrintResultResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -589,7 +589,7 @@ class LabelGetFormatsRequest extends $pb.GeneratedMessage {
           ? ''
           : 'LabelGetFormatsRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -658,7 +658,7 @@ class LabelGetFormatsResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'LabelGetFormatsResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -882,7 +882,7 @@ class LabelGetFormatsResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'LabelGetFormatsResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -968,7 +968,7 @@ class LabelGetFormatsResponse extends $pb.GeneratedMessage {
           ? ''
           : 'LabelGetFormatsResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -1124,7 +1124,7 @@ class GetProdInfoRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdInfoRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -1212,7 +1212,7 @@ class GetProdInfoResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdInfoResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -1536,7 +1536,7 @@ class GetProdInfoResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdInfoResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -1620,7 +1620,7 @@ class GetProdInfoResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetProdInfoResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -1753,7 +1753,7 @@ class GetShelfVarietyCdRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetShelfVarietyCdRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -1843,7 +1843,7 @@ class GetShelfVarietyCdResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetShelfVarietyCdResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -1980,7 +1980,7 @@ class GetShelfVarietyCdResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetShelfVarietyCdResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -2067,7 +2067,7 @@ class GetShelfVarietyCdResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetShelfVarietyCdResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -2181,7 +2181,7 @@ class InsertPrintHistoryRequest_PrintData extends $pb.GeneratedMessage {
           ? ''
           : 'InsertPrintHistoryRequest.PrintData',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -2342,7 +2342,7 @@ class InsertPrintHistoryRequest extends $pb.GeneratedMessage {
           ? ''
           : 'InsertPrintHistoryRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)
@@ -2426,7 +2426,7 @@ class InsertPrintHistoryResponse extends $pb.GeneratedMessage {
           ? ''
           : 'InsertPrintHistoryResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'label.v1'),
       createEmptyInstance: create)

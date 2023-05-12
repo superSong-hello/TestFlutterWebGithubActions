@@ -19,7 +19,7 @@ class HealthCheckRequest extends $pb.GeneratedMessage {
           ? ''
           : 'HealthCheckRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'grpc.health.v1'),
       createEmptyInstance: create)
@@ -86,7 +86,7 @@ class HealthCheckResponse extends $pb.GeneratedMessage {
           ? ''
           : 'HealthCheckResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'grpc.health.v1'),
       createEmptyInstance: create)

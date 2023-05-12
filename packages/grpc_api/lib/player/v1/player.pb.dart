@@ -15,7 +15,7 @@ class GetInfoRequest extends $pb.GeneratedMessage {
           ? ''
           : 'GetInfoRequest',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'player.v1'),
       createEmptyInstance: create)
@@ -82,7 +82,7 @@ class GetInfoResponse_Table0_Row extends $pb.GeneratedMessage {
           ? ''
           : 'GetInfoResponse.Table0.Row',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'player.v1'),
       createEmptyInstance: create)
@@ -258,7 +258,7 @@ class GetInfoResponse_Table0 extends $pb.GeneratedMessage {
           ? ''
           : 'GetInfoResponse.Table0',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'player.v1'),
       createEmptyInstance: create)
@@ -342,7 +342,7 @@ class GetInfoResponse extends $pb.GeneratedMessage {
           ? ''
           : 'GetInfoResponse',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
               : 'player.v1'),
       createEmptyInstance: create)
