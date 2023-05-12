@@ -2,5 +2,12 @@ name: daifuku_workspace
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
-dev_dependencies:
-  melos: ^3.0.1
+
+dependencies:
+  melos:
+    git:
+      url: https://github.com/invertase/melos.git
+      path: packages/melos
+
+#dev_dependencies:
+#  melos: ^3.0.1
