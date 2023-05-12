@@ -5,12 +5,15 @@ steps:
     args:
     - '-c'
     - |
+      echo "start"
+      echo "$PATH"
+      echo "end"
       dart pub global activate melos
       dart pub add melos --dev
-      echo 'export PATH="$PATH:/builder/home/.pub-cache/bin"' >> ~/.bashrc
-      source ~/.bashrc
-      echo 'export PATH="$PATH:/builder/home/.pub-cache/bin"' >> ~/.bash_profile
-      source ~/.bash_profile
+#      echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.bashrc
+#      source ~/.bashrc
+#      echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.bash_profile
+#      source ~/.bash_profile
       melos build:flutterWeb:dev
   # Upload to GAE
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -20,7 +23,6 @@ steps:
     - |
       cd packages/daifuku/
       gcloud app deploy app.yaml
-
 
 
 #  # Install Flutter SDK && Build Flutter Web app
