@@ -17,19 +17,29 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
 
-      - name: Clean and Install pub
-        run: |
-          flutter clean
-          flutter pub get
+      - name: Install Melos
+        uses: bluefireteam/melos-action@v1
 
       - name: Analyze project
-        run: flutter analyze
-
-      - name: Check for the existence of unformatted files
-        run: dart format --set-exit-if-changed lib/
+        run: melos analyze
 
       - name: Metrics project
-        run: flutter pub run dart_code_metrics:metrics analyze lib/
+        run: melos metrics
 
-      - name: Test project
-        run: flutter test
+      - name: Check for the existence of unformatted files
+        run: melos format:ci
+
+      - name: Run unit tests
+        run: melos run test
+
+#      - name: Analyze project
+#        run: flutter analyze
+#
+#      - name: Check for the existence of unformatted files
+#        run: dart format --set-exit-if-changed lib/
+#
+#      - name: Metrics project
+#        run: flutter pub run dart_code_metrics:metrics analyze lib/
+#
+#      - name: Test project
+#        run: flutter test
