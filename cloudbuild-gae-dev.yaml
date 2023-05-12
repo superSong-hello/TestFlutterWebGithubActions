@@ -1,7 +1,7 @@
 steps:
   # Install Melos
-  - name: melosjs/melos
-    entrypoint: melos
+  - name: melostbr/techtrends
+    entrypoint: /bin/sh
     args: [ "install" ]
   # Install Flutter SDK && Build Flutter Web app
   - name: 'cirrusci/flutter'
