@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   dio: ^4.0.6
   flutter_riverpod: ^2.3.0
   flutter_easyloading: ^3.0.5
@@ -20,15 +22,15 @@ dependencies:
   flutter_adaptive_scaffold: ^0.1.0
   drag_and_drop_lists: ^0.3.3
   flutter_animated_dialog: ^2.0.1
-  flutter_localizations:
-    sdk: flutter
-  intl: ^0.17.0
   shared_preferences: ^2.0.18
   pull_to_refresh: ^2.0.0
   grpc: ^3.1.0
   protobuf: ^2.1.0
   build_grpc_channel: ^0.5.0
   grpc_api:
+
+dependency_overrides:
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:
