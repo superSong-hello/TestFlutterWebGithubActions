@@ -90,7 +90,7 @@ class _AlertListCellState extends State<AlertListCell> {
             // time
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text.rich(
                   TextSpan(
                     children: [
