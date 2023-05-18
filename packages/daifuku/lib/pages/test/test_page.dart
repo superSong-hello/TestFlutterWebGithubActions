@@ -7,6 +7,9 @@ import 'package:daifuku/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+final countProvider = StateProvider<int>((ref) => 3);
+final canReduceProvider = Provider<bool>((ref) => ref.watch(countProvider) > 0);
+
 class TestPage extends ConsumerWidget {
   const TestPage({super.key});
 
@@ -16,6 +19,9 @@ class TestPage extends ConsumerWidget {
       TypeSelectModel(id: 1, name: 'category 1'),
       TypeSelectModel(id: 2, name: 'category 2')
     ];
+    
+    final canReduce = ref.watch(canReduceProvider);
+    final count = ref.watch(countProvider);
 
     return PageLayout(
       title: 'test UI',
@@ -75,6 +81,16 @@ class TestPage extends ConsumerWidget {
           const SizedBox(
             height: 10,
           ),
+          CustomStatusButton(
+            text: '当前Count:$count',
+            isChosen: canReduce,
+            onTap: () {
+              if (canReduce) {
+                ref.read(countProvider.notifier).update((state) => state - 1);
+              }
+            },
+          ),
+          const SizedBox(height: 10,),
           CellGroup(
             children: [
               CellItem(

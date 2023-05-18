@@ -23,6 +23,17 @@ class _TestAppPageState extends BaseState<TestAppPage> {
   final vmProvider = ChangeNotifierProvider((_) => TestAppPageViewModel());
   final RefreshController _refreshController = RefreshController();
 
+  ScrollController _controller = ScrollController();
+
+  // 在需要偏移的地方调用此方法
+  void scrollToOffset(double offset) {
+    _controller.animateTo(
+      offset,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer(
@@ -36,6 +47,7 @@ class _TestAppPageState extends BaseState<TestAppPage> {
               showLoading();
               await vm.onRefresh();
               hideLoading();
+              // Future.delayed(Duration(seconds: 2), () => scrollToOffset(100));
             },
             child: const Text('reload'),
           ),
@@ -70,7 +82,7 @@ class _TestAppPageState extends BaseState<TestAppPage> {
                             );
                           },
                         );
-                      },
+                      }, controller: _controller,
                     ),
               onRefresh: () async => refresh(vm),
               onLoading: () async => onLoad(vm),

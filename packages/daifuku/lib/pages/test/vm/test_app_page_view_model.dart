@@ -22,7 +22,7 @@ class TestAppPageViewModel extends ChangeNotifier {
   Future<void> onRefresh({bool isNotify = true}) async {
     await Future<void>.delayed(
       const Duration(milliseconds: 2000),
-    ).then((value) => dataArray = List.generate(15, (index) => '$index'));
+    ).then((value) => dataArray = List.generate(50, (index) => '$index'));
 
     if (isNotify) {
       notify();
